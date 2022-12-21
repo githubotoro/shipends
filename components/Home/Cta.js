@@ -43,27 +43,21 @@ const Cta = () => {
 						target="_blank"
 						rel="noreferrer noopener"
 					>
-						<IconButton>
-							<TwitterIcon className="stroke-none hover:fill-white h-8 w-8 md:h-10 md:w-10 fill-azure drop-shadow-md" />
-						</IconButton>
+						<TwitterIcon className="stroke-none hover:fill-white h-8 w-8 md:h-10 md:w-10 fill-azure drop-shadow-md" />
 					</a>
 					<a
 						href="mailto: shipends@gmail.com"
 						target="_blank"
 						rel="noreferrer noopener"
 					>
-						<IconButton>
-							<EmailIcon className="stroke-none hover:fill-white h-8 w-8 md:h-10 md:w-10 fill-ruddy drop-shadow-md" />
-						</IconButton>
+						<EmailIcon className="stroke-none hover:fill-white h-8 w-8 md:h-10 md:w-10 fill-ruddy drop-shadow-md" />
 					</a>
 					<a
 						href="https://github.com/shipends"
 						target="_blank"
 						rel="noreferrer noopener"
 					>
-						<IconButton>
-							<GitHubIcon className="stroke-none hover:fill-white h-8 w-8 md:h-10 md:w-10 fill-grey drop-shadow-md" />
-						</IconButton>
+						<GitHubIcon className="stroke-none hover:fill-white h-8 w-8 md:h-10 md:w-10 fill-grey drop-shadow-md" />
 					</a>
 				</div>
 			</div>
