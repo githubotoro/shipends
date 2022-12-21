@@ -1,9 +1,13 @@
 import "../styles/globals.css";
 
-export default function App({ Component, pageProps }) {
+const App = ({ Component, pageProps }) => {
 	return (
 		<>
-			<Component {...pageProps} />
+			<div className="font-Roboto">
+				<Component {...pageProps} />
+			</div>
 		</>
 	);
-}
+};
+
+export default App;
