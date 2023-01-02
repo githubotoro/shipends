@@ -26,7 +26,24 @@ const Document = () => {
 				</Script>
 			</Head>
 			<body>
+				{/* <svg className="pointer-events-none fixed isolate z-50 opacity-100 mix-blend-soft-light w-full h-full">
+					<filter id="grains">
+						<feTurbulence
+							type="fractalNoise"
+							baseFrequency="0.70"
+							numOctaves="5"
+							stitchTiles="stitch"
+						></feTurbulence>
+					</filter>
+					<rect
+						width="100%"
+						height="100%"
+						filter="url(#grains)"
+					></rect>
+				</svg> */}
+
 				<Main />
+
 				<NextScript />
 			</body>
 		</Html>

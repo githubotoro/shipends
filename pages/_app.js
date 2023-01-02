@@ -4,12 +4,14 @@ import { useRouter } from "next/router";
 import { PageView } from "../lib/ga";
 import { useEffect } from "react";
 
+import Navbar from "../components/Navbar";
+
 const App = ({ Component, pageProps }) => {
 	const router = useRouter();
 
 	useEffect(() => {
 		const handleRouteChange = (url) => {
-			pageview(url);
+			PageView(url);
 		};
 
 		router.events.on("routeChangeComplete", handleRouteChange);
@@ -23,6 +25,7 @@ const App = ({ Component, pageProps }) => {
 		<>
 			<div className="font-Roboto">
 				<Component {...pageProps} />
+				{/* <Navbar /> */}
 				<Analytics />
 			</div>
 		</>

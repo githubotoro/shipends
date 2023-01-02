@@ -31,6 +31,8 @@ module.exports = {
 				azure: "#0099FF",
 				aqua: "#00CCFF",
 				cyan: "#22DDDD",
+				gainsboro: "#DADCE0",
+				shuttle: "#5F6368",
 			},
 		},
 	},
