@@ -59,7 +59,7 @@ const Learn = () => {
 									bg-gradient-to-br from-azure to-aqua text-bianca font-black
 									border-animate shadow-[0_0_0_0px_#99EBFF] hover:shadow-[0_0_0_5px_#99EBFF] border-opacity-20"
 										>
-											Let's Ship!
+											Let&apos;s Ship!
 										</button>
 									</Link>
 								</div>
