@@ -55,7 +55,7 @@ const Learn = () => {
 									{ship.description}
 								</div>
 								<div className="flex flex-col items-end -mr-1 mb-1 mt-2">
-									<Link href={`/learn/${ship.path}`}>
+									<Link href={`/${ship.path}`}>
 										<button
 											className="px-3 py-1 rounded-lg text-md 
 									bg-gradient-to-br from-azure to-aqua text-bianca font-black
