@@ -25,7 +25,7 @@ const App = ({ Component, pageProps }) => {
 		<>
 			<div className="font-Roboto">
 				<Component {...pageProps} />
-				{/* <Navbar /> */}
+				<Navbar />
 				<Analytics />
 			</div>
 		</>

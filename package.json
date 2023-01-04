@@ -11,9 +11,12 @@
 	"dependencies": {
 		"@emotion/react": "^11.10.5",
 		"@emotion/styled": "^11.10.5",
+		"@mdx-js/loader": "^2.2.1",
+		"@mdx-js/react": "^2.2.1",
 		"@mui/icons-material": "^5.11.0",
 		"@mui/material": "^5.11.0",
 		"@next/font": "13.0.7",
+		"@next/mdx": "^13.1.1",
 		"@vercel/analytics": "^0.1.6",
 		"eslint": "8.29.0",
 		"eslint-config-next": "13.0.7",
@@ -23,6 +26,7 @@
 		"swr": "^2.0.0"
 	},
 	"devDependencies": {
+		"@tailwindcss/typography": "^0.5.8",
 		"autoprefixer": "^10.4.13",
 		"postcss": "^8.4.20",
 		"tailwindcss": "^3.2.4"

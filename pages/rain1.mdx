@@ -1,0 +1,87 @@
+# Add Connect Wallet Button --takes 5 min.
+
+## 1. Install RainbowKit + required dependencies.
+
+```sh
+npm install @rainbow-me/rainbowkit wagmi ethers
+```
+
+> To ensure our entire app has access to wallet connection, we need to configure + wrap it. So, we will modify \_app.js (Next.js).
+
+## 2. Importing
+
+```js index.js
+import "@rainbow-me/rainbowkit/styles.css";
+import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { configureChains, createClient, WagmiConfig } from "wagmi";
+import { goerli, polygonMumbai } from "wagmi/chains";
+import { alchemyProvider } from "wagmi/providers/alchemy";
+import { publicProvider } from "wagmi/providers/public";
+```
+
+> For list of chains -- refer [this](https://wagmi.sh/react/chains#supported-chains)
+
+## 3. Configuring
+
+Go to [Alchemy](https://www.alchemy.com/) -- get your own API key on required network, create a .env file + add it.
+
+```sh .env
+POLYGON_MUMBAI_API_KEY = BnYvzDrb35eESrtDPtUzNYdoqUGS7Go1
+```
+
+```js index.js
+const { chains, provider } = configureChains(
+	[polygonMumbai],
+	[
+		alchemyProvider({ apiKey: process.env.POLYGON_MUMBAI_API_KEY }),
+		publicProvider(),
+	]
+);
+
+const { connectors } = getDefaultWallets({
+	appName: "RainbowKit App",
+	chains,
+});
+
+const wagmiClient = createClient({
+	autoConnect: true,
+	connectors,
+	provider,
+});
+```
+
+## 4. Wrapping
+
+Wrapping means putting patty (RainbowKit) inside two buns (App Component), and calling it a hamburger (Shipped Product).
+
+```js
+export default function App({ Component, pageProps }) {
+	return (
+		<WagmiConfig client={wagmiClient}>
+			<RainbowKitProvider chains={chains}>
+				<Component {...pageProps} />
+			</RainbowKitProvider>
+		</WagmiConfig>
+	);
+}
+```
+
+## 5. Connecting
+
+Now, import ConnectButton in whichever .js file you require.
+
+```js
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+
+export default function Home() {
+	return (
+		<div>
+			...
+			<ConnectButton />
+			...
+		</div>
+	);
+}
+```
+
+# [Next](rain2)
