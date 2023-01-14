@@ -6,7 +6,8 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"serve-json": "json-server --watch db.json --port 4000"
 	},
 	"dependencies": {
 		"@emotion/react": "^11.10.5",
@@ -20,7 +21,11 @@
 		"@vercel/analytics": "^0.1.6",
 		"eslint": "8.29.0",
 		"eslint-config-next": "13.0.7",
+		"gray-matter": "^4.0.3",
+		"json-server": "^0.17.1",
 		"next": "13.0.7",
+		"next-mdx-remote": "^4.2.1",
+		"octokit": "^2.0.11",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"swr": "^2.0.0"

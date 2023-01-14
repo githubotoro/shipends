@@ -4,70 +4,84 @@ import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config";
 
 import { Image } from "next/image";
+import { RepeatOneSharp } from "@mui/icons-material";
 
-const Learn = () => {
-	const ships = [
-		{
-			name: "RainbowKit",
-			description:
-				"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley",
+import { Fetch } from "../../components";
 
-			path: "rain1",
+export const getStaticProps = async () => {
+	const owner = "shipends";
+	const repo = "ships";
+	const path = "index.json";
+
+	const response = await Fetch({ owner, repo, path });
+
+	const ships = JSON.parse(
+		Buffer.from(response.data.content, "base64")
+	).ships;
+
+	return {
+		props: {
+			ships: ships,
 		},
-		{
-			name: "Wagmi",
-			description:
-				"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley",
+	};
+};
 
-			path: "wagmi",
-		},
-		{
-			name: "Push Protocol",
-			description:
-				"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley",
-
-			path: "push-protocol",
-		},
-	];
-
+const Learn = ({ ships }) => {
 	return (
 		<>
-			<div className="flex flex-col w-full min-h-screen bg-zeus place-content-start items-center">
-				<div className="flex flex-col max-w-4xl w-full space-y-3 p-3">
-					{ships.map((ship, index) => {
-						return (
-							<div
-								key={index}
-								className="flex flex-col w-full px-4 py-2 rounded-lg bg-bianca"
-							>
-								<div className="flex flex-row items-center">
-									{/* <img
-										src={`/assets/logos/${ship.path}.png`}
-										alt={`${ship.name} Logo`}
-										className="w-10 rounded-lg p-2"
-									/> */}
-									<div className="ml-1 font-black text-lg text-zeus">
-										{ship.name}
+			<div className="min-h-screen flex place-content-center bg-white">
+				<div className="flex-1 max-w-7xl mx-auto p-3">
+					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+						{ships.map((ship, index) => {
+							return (
+								<div
+									key={index}
+									className="flex flex-col py-1 px-2 w-full h-full border border-platinum rounded-lg text-zeus"
+								>
+									<div className="h-36 -mt-1 -mx-2 mb-1 bg-aqua rounded-t-md text-md"></div>
+									<div className="flex flex-row items-center">
+										<div className="bg-violet w-6 h-6 rounded-md" />
+										<div className="ml-2 text-dune text-lg font-bold">
+											{ship.name}
+										</div>
+									</div>
+
+									<hr className="bg-platinum -mx-2 my-1" />
+
+									<div className="mb-1 text-xs text-hurricane font-normal">
+										{ship.description}
+									</div>
+									<div className="mt-auto mb-1 flex flex-col items-end">
+										<Link
+											href={`/learn/${ship.path}`}
+											passHref
+										>
+											{ship.status === "active" ? (
+												<button
+													className={`transition ease-in-out delay-100 duration-200
+                                                     rounded-lg py-1 px-2 text-sm text-flint hover:text-dune
+                                                bg-linen hover:bg-silver font-semibold
+                                                `}
+												>
+													Let&apos;s Ship!
+												</button>
+											) : (
+												<button
+													disabled
+													className={`transition ease-in-out delay-100 duration-200
+                                                    cursor-not-allowed rounded-lg py-1 px-2 text-sm text-flint
+                                                bg-linen hover:bg-silver font-semibold
+                                                `}
+												>
+													Coming Soon.
+												</button>
+											)}
+										</Link>
 									</div>
 								</div>
-
-								<div className="font-normal text-md text-shuttle">
-									{ship.description}
-								</div>
-								<div className="flex flex-col items-end -mr-1 mb-1 mt-2">
-									<Link href={`/${ship.path}`}>
-										<button
-											className="px-3 py-1 rounded-lg text-md 
-									bg-gradient-to-br from-azure to-aqua text-bianca font-black
-									border-animate shadow-[0_0_0_0px_#99EBFF] hover:shadow-[0_0_0_5px_#99EBFF] border-opacity-20"
-										>
-											Let&apos;s Ship!
-										</button>
-									</Link>
-								</div>
-							</div>
-						);
-					})}
+							);
+						})}
+					</div>
 				</div>
 			</div>
 		</>
