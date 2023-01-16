@@ -71,7 +71,55 @@ export const getStaticPaths = async () => {
 		{
 			params: {
 				ship: "hardhat",
+				sail: "prologue",
+			},
+		},
+		{
+			params: {
+				ship: "hardhat",
+				sail: "1_setting_up_hardhat",
+			},
+		},
+		{
+			params: {
+				ship: "hardhat",
 				sail: "2_writing_smart_contracts",
+			},
+		},
+		{
+			params: {
+				ship: "hardhat",
+				sail: "3_intro_to_artifacts_and_cache",
+			},
+		},
+		{
+			params: {
+				ship: "hardhat",
+				sail: "4_testing_contracts",
+			},
+		},
+		{
+			params: {
+				ship: "hardhat",
+				sail: "5_calling_contract_functions",
+			},
+		},
+		{
+			params: {
+				ship: "hardhat",
+				sail: "6_going_live",
+			},
+		},
+		{
+			params: {
+				ship: "hardhat",
+				sail: "7_verifying_on_etherscan",
+			},
+		},
+		{
+			params: {
+				ship: "hardhat",
+				sail: "epilogue",
 			},
 		},
 	];
@@ -93,7 +141,7 @@ const Sail = ({ frontmatter, source, parent, sections }) => {
 				text-fgMuted text-normal bg-bgSubtle w-60"
 				>
 					<div
-						className="mb-1 -mt-[1px] -ml-[1px] -mr-[1px] py-1 px-2 bg-bgInset text-fgDefault font-semibold rounded-t-md
+						className="mb-1 -mt-[1px] -ml-[1px] -mr-[1px] py-1 px-2 bg-bgInset text-fgDefault font-bold rounded-t-md
 					border border-borderDefault text-2xl text-center"
 					>
 						{parent.charAt(0).toUpperCase() + parent.slice(1)}
@@ -125,10 +173,10 @@ const Sail = ({ frontmatter, source, parent, sections }) => {
 
 				<div
 					className="flex flex-col lg:ml-0 border border-borderDefault rounded-md
-				             text-fgDefault text-normal bg-bgSubtle font-sans w-full lg:min-w-[900px] lg:max-w-[900px]"
+				             text-fgDefault text-normal bg-bgSubtle w-full lg:min-w-[900px] lg:max-w-[900px]"
 				>
 					<div
-						className="-ml-[1px] -mr-[1px] -mt-[1px] py-1 px-2 bg-bgInset text-fgDefault font-semibold rounded-t-md
+						className="-ml-[1px] -mr-[1px] -mt-[1px] py-1 px-2 bg-bgInset text-fgDefault font-bold rounded-t-md
 					border border-borderDefault text-2xl text-center"
 					>
 						{frontmatter.title}&nbsp;&nbsp;
