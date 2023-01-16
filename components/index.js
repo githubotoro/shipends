@@ -1,5 +1,6 @@
-import Fetch from "./Git/Fetch";
+import FetchMarkdown from "./Git/FetchMarkdown";
+import FetchIndex from "./Git/FetchIndex";
 import Render from "./Markdown/Render";
 import MDXComponents from "./Markdown/MDXComponents";
 
-export { Fetch, Render, MDXComponents };
+export { FetchMarkdown, FetchIndex, Render, MDXComponents };

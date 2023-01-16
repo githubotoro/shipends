@@ -8,29 +8,29 @@ import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 
 const App = ({ Component, pageProps }) => {
-	const router = useRouter();
+    const router = useRouter();
 
-	useEffect(() => {
-		const handleRouteChange = (url) => {
-			PageView(url);
-		};
+    useEffect(() => {
+        const handleRouteChange = (url) => {
+            PageView(url);
+        };
 
-		router.events.on("routeChangeComplete", handleRouteChange);
+        router.events.on("routeChangeComplete", handleRouteChange);
 
-		return () => {
-			router.events.off("routeChangeComplete", handleRouteChange);
-		};
-	}, [router.events]);
+        return () => {
+            router.events.off("routeChangeComplete", handleRouteChange);
+        };
+    }, [router.events]);
 
-	return (
-		<>
-			<div className="font-Roboto">
-				<Component {...pageProps} />
-				{/* <Navbar /> */}
-				<Analytics />
-			</div>
-		</>
-	);
+    return (
+        <>
+            <div className="font-Roboto">
+                <Component {...pageProps} />
+                {/* <Navbar /> */}
+                <Analytics />
+            </div>
+        </>
+    );
 };
 
 export default App;

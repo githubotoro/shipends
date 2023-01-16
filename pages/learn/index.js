@@ -4,18 +4,32 @@ import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config";
 
 import { Image } from "next/image";
-import { RepeatOneSharp } from "@mui/icons-material";
+import { Octokit } from "octokit";
 
-import { Fetch } from "../../components";
+import { FetchIndex } from "../../components";
 
 export const getStaticProps = async () => {
+	const octokit = new Octokit({
+		auth: process.env.NEXT_PUBLIC_GIT_TOKEN,
+	});
+
+	const owner = `shipends`;
+	const repo = `ships`;
+
 	const path = "index.json";
 
-	const response = await Fetch({ path });
+	const response = await octokit.request(
+		"GET /repos/{owner}/{repo}/contents/{path}{?ref}",
+		{
+			owner: owner,
+			repo: repo,
+			path: path,
+		}
+	);
 
-	const ships = JSON.parse(
-		Buffer.from(response.data.content, "base64")
-	).ships;
+	const json = JSON.parse(Buffer.from(response.data.content, "base64"));
+
+	const ships = json.ships;
 
 	return {
 		props: {

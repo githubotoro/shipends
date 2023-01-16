@@ -8,21 +8,21 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
 
-const Render = async ({ response }) => {
-	const encodedMarkdownContent = response.data.content;
-	const markdown = Buffer.from(encodedMarkdownContent, "base64");
-	const { data: frontmatter, content } = matter(markdown);
-	const source = await serialize(content, {
-		mdxOptions: {
-			rehypePlugins: [
-				rehypeSlug,
-				[rehypeAutolinkHeadings, { behavior: "wrap" }],
-				rehypeHighlight,
-			],
-		},
-	});
+const Render = async ({ responseMarkdown }) => {
+    const encodedMarkdownContent = responseMarkdown.data.content;
+    const markdown = Buffer.from(encodedMarkdownContent, "base64");
+    const { data: frontmatter, content } = matter(markdown);
+    const source = await serialize(content, {
+        mdxOptions: {
+            rehypePlugins: [
+                rehypeSlug,
+                [rehypeAutolinkHeadings, { behavior: "wrap" }],
+                rehypeHighlight,
+            ],
+        },
+    });
 
-	return { frontmatter, source };
+    return { frontmatter, source };
 };
 
 export default Render;

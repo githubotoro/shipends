@@ -1,18 +1,67 @@
-import { Fetch, Render, MDXComponents } from "../../../components";
+import {
+	FetchIndex,
+	Render,
+	MDXComponents,
+	FetchMarkdown,
+} from "../../../components";
 
 import { MDXRemote } from "next-mdx-remote";
 import { MDXProvider } from "@mdx-js/react";
 
+import { Octokit } from "octokit";
+import { serialize } from "next-mdx-remote/serialize";
+import matter from "gray-matter";
+
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeHighlight from "rehype-highlight";
+
+import Link from "next/link";
+import { useRouter } from "next/router";
+
 export const getStaticProps = async (context) => {
+	const octokit = new Octokit({
+		auth: process.env.NEXT_PUBLIC_GIT_TOKEN,
+	});
+
 	const { params } = context;
 
-	const path = `${params.ship}/${params.sail}.md`;
-	const response = await Fetch({ path });
-	const { frontmatter, source } = await Render({ response });
+	const owner = `shipends`;
+	const repo = `ships`;
+
+	const pathMarkdown = `${params.ship}/${params.sail}.md`;
+	const responseMarkdown = await octokit.request(
+		"GET /repos/{owner}/{repo}/contents/{path}{?ref}",
+		{
+			owner: owner,
+			repo: repo,
+			path: pathMarkdown,
+		}
+	);
+
+	const { frontmatter, source } = await Render({ responseMarkdown });
+
+	const pathIndex = `${params.ship}/index.json`;
+	const responseIndex = await octokit.request(
+		"GET /repos/{owner}/{repo}/contents/{path}{?ref}",
+		{
+			owner: owner,
+			repo: repo,
+			path: pathIndex,
+		}
+	);
+
+	const index = JSON.parse(Buffer.from(responseIndex.data.content, "base64"));
+
+	const parent = index.parent;
+	const sections = index.sections;
 
 	return {
 		props: {
+			frontmatter: frontmatter,
 			source: source,
+			parent: parent,
+			sections: sections,
 		},
 	};
 };
@@ -33,16 +82,63 @@ export const getStaticPaths = async () => {
 	};
 };
 
-const Sail = ({ source }) => {
+const Sail = ({ frontmatter, source, parent, sections }) => {
+	const Router = useRouter();
+
 	return (
 		<>
-			<div className="flex flex-col items-center place-content-center w-full bg-white ">
+			<div className="flex flex-col p-3 lg:flex-row items-start place-content-center w-full bg-bgSubtle">
 				<div
-					className="flex flex-col border border-borderDefault rounded-lg m-3 px-3 py-2
-				text-fgDefault text-normal bg-white max-w-5xl font-sans
-				"
+					className="flex lg:flex flex-col border border-borderDefault rounded-md mr-3
+				text-fgMuted text-normal bg-bgSubtle w-60"
 				>
-					<MDXRemote components={MDXComponents} {...source} />
+					<div
+						className="mb-1 -mt-[1px] -ml-[1px] -mr-[1px] py-1 px-2 bg-bgInset text-fgDefault font-semibold rounded-t-md
+					border border-borderDefault text-2xl text-center"
+					>
+						{parent.charAt(0).toUpperCase() + parent.slice(1)}
+					</div>
+					{sections.map((section, index) => {
+						return (
+							<Link
+								key={index}
+								href={{
+									pathname: "/learn/[ship]/[sail]",
+									query: { ship: parent, sail: section.path },
+								}}
+							>
+								<div
+									className={`truncate rounded-md py-1 px-2 cursor-pointer mb-1
+								transition ease-in-out delay-50 duration-200 mx-1
+								${
+									section.path === Router.query.sail
+										? "bg-accentSubtle text-accentEmphasis font-normal"
+										: "bg-bgSubtle hover:bg-bgInset hover:text-fgDefault"
+								}`}
+								>
+									{section.title}
+								</div>
+							</Link>
+						);
+					})}
+				</div>
+
+				<div
+					className="flex flex-col lg:ml-0 border border-borderDefault rounded-md
+				             text-fgDefault text-normal bg-bgSubtle font-sans w-full lg:min-w-[900px] lg:max-w-[900px]"
+				>
+					<div
+						className="-ml-[1px] -mr-[1px] -mt-[1px] py-1 px-2 bg-bgInset text-fgDefault font-semibold rounded-t-md
+					border border-borderDefault text-2xl text-center"
+					>
+						{frontmatter.title}&nbsp;&nbsp;
+						<span className="text-accentEmphasis bg-accentSubtle rounded-lg text-xl py-1 px-2">
+							--takes {frontmatter.takes} min.
+						</span>
+					</div>
+					<div className="my-2 mx-3">
+						<MDXRemote components={MDXComponents} {...source} />
+					</div>
 				</div>
 			</div>
 		</>
