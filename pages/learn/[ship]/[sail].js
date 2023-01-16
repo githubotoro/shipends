@@ -87,42 +87,42 @@ export const getStaticPaths = async () => {
 			},
 		},
 
-		{
-			params: {
-				ship: "hardhat",
-				sail: "3_testing_contracts",
-			},
-		},
-		{
-			params: {
-				ship: "hardhat",
-				sail: "4_intro_to_artifacts_and_cache",
-			},
-		},
-		{
-			params: {
-				ship: "hardhat",
-				sail: "5_calling_contract_functions",
-			},
-		},
-		{
-			params: {
-				ship: "hardhat",
-				sail: "6_going_live",
-			},
-		},
-		{
-			params: {
-				ship: "hardhat",
-				sail: "7_verifying_on_etherscan",
-			},
-		},
-		{
-			params: {
-				ship: "hardhat",
-				sail: "epilogue",
-			},
-		},
+		// {
+		// 	params: {
+		// 		ship: "hardhat",
+		// 		sail: "3_testing_contracts",
+		// 	},
+		// },
+		// {
+		// 	params: {
+		// 		ship: "hardhat",
+		// 		sail: "4_intro_to_artifacts_and_cache",
+		// 	},
+		// },
+		// {
+		// 	params: {
+		// 		ship: "hardhat",
+		// 		sail: "5_calling_contract_functions",
+		// 	},
+		// },
+		// {
+		// 	params: {
+		// 		ship: "hardhat",
+		// 		sail: "6_going_live",
+		// 	},
+		// },
+		// {
+		// 	params: {
+		// 		ship: "hardhat",
+		// 		sail: "7_verifying_on_etherscan",
+		// 	},
+		// },
+		// {
+		// 	params: {
+		// 		ship: "hardhat",
+		// 		sail: "epilogue",
+		// 	},
+		// },
 	];
 
 	return {
