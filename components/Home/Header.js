@@ -43,9 +43,10 @@ const Header = () => {
 				<div className="bg-gradient-to-r from-golden to-magenta py-1 px-3 md:py-2 md:px-4 rounded-xl mt-4 md:mt-6">
 					<div
 						className="text-transparent bg-clip-text bg-gradient-to-br from-bianca to-white font-extrabold
-			text-2xl md:text-5xl "
+			text-2xl md:text-4xl"
 					>
-						Get Started
+						{/* Get Started */}
+						Lesgoo!
 					</div>
 				</div>
 			</Link>

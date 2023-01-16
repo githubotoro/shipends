@@ -86,16 +86,17 @@ export const getStaticPaths = async () => {
 				sail: "2_writing_smart_contracts",
 			},
 		},
+
 		{
 			params: {
 				ship: "hardhat",
-				sail: "3_intro_to_artifacts_and_cache",
+				sail: "3_testing_contracts",
 			},
 		},
 		{
 			params: {
 				ship: "hardhat",
-				sail: "4_testing_contracts",
+				sail: "4_intro_to_artifacts_and_cache",
 			},
 		},
 		{
