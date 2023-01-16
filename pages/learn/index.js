@@ -9,11 +9,9 @@ import { RepeatOneSharp } from "@mui/icons-material";
 import { Fetch } from "../../components";
 
 export const getStaticProps = async () => {
-	const owner = "shipends";
-	const repo = "ships";
 	const path = "index.json";
 
-	const response = await Fetch({ owner, repo, path });
+	const response = await Fetch({ path });
 
 	const ships = JSON.parse(
 		Buffer.from(response.data.content, "base64")
@@ -53,7 +51,7 @@ const Learn = ({ ships }) => {
 									</div>
 									<div className="mt-auto mb-1 flex flex-col items-end">
 										<Link
-											href={`/learn/${ship.path}`}
+											href={`/learn/${ship.path}/prologue`}
 											passHref
 										>
 											{ship.status === "active" ? (

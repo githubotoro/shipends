@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "../styles/github.css";
 import { Analytics } from "@vercel/analytics/react";
 import { useRouter } from "next/router";
 import { PageView } from "../lib/ga";

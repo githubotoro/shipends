@@ -31,4 +31,18 @@ const Test = () => {
 	);
 };
 
+// const ships = JSON.parse(
+// 	Buffer.from(response.data.content, "base64")
+// ).ships;
+
+// const paths = ships
+// 	.filter((ship) => ship.status === "active")
+// 	.map((ship) => {
+// 		return {
+// 			params: {
+// 				ship: `${ship.path}`,
+// 			},
+// 		};
+// 	});
+
 export default Test;

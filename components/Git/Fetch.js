@@ -1,6 +1,9 @@
 import { Octokit } from "octokit";
 
-const Fetch = async ({ owner, repo, path }) => {
+const Fetch = async ({ path }) => {
+	const owner = `shipends`;
+	const repo = `ships`;
+
 	const octokit = new Octokit({
 		auth: process.env.NEXT_PUBLIC_GIT_TOKEN,
 	});
