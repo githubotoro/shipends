@@ -1,6 +1,3 @@
-import MDXComponents from "./MDXComponents";
-import { MDXProvider } from "@mdx-js/react";
-import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import matter from "gray-matter";
 

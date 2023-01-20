@@ -6,6 +6,11 @@ module.exports = {
         "./pages/**/*.{js,ts,jsx,tsx}",
         "./components/**/*.{js,ts,jsx,tsx}",
     ],
+    variants: {
+        extend: {
+            display: ["group-hover"],
+        },
+    },
     theme: {
         extend: {
             fontFamily: {
@@ -64,6 +69,34 @@ module.exports = {
                 cyan: "#22DDDD",
                 gainsboro: "#DADCE0",
                 shuttle: "#5F6368",
+
+                // Framer
+                isBlack: "rgb(0, 0, 0)",
+                isZeus: "rgb(34, 34, 34)",
+                isZeusSubtle: "rgba(34, 34, 34, 0.1)",
+                isGhost: "rgb(85, 85, 85)",
+                isGrey: "rgb(119, 119, 119)",
+                isGreyMuted: "rgba(119, 119, 119, 0.3)",
+                isGreySubtle: "rgba(119, 119, 119, 0.1)",
+                isSilver: "rgb(153, 153, 153)",
+                isSilverSubtle: "rgba(153, 153, 153, 0.1)",
+                isBianca: "rgb(238, 238, 238)",
+                isLight: "rgb(250, 250, 250)",
+                isWhite: "rgb(255, 255, 255)",
+                isOcur: "rgb(255, 170, 0)",
+                isGolden: "rgb(255, 187, 0)",
+                isOrange: "rgb(253, 119, 2)",
+                isPink: "rgb(255, 0, 238)",
+                isFolly: "rgb(255, 0, 102)",
+                isRed: "rgb(254, 2, 34)",
+                isPurple: "rgb(153, 0, 255)",
+                isViolet: "rgb(102, 0, 255)",
+                isBlue: "rgb(19, 0, 255)",
+                isBlueLight: "rgba(19, 0, 255, 0.8)",
+                isAzure: "rgb(0, 136, 255)",
+                isAzureSubtle: "rgba(0, 136, 255, 0.1)",
+                isWater: "rgb(0, 204, 255)",
+                isCyan: "rgb(34, 221, 221)",
 
                 // Github
                 fgDefault: "#24292f",

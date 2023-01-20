@@ -25,8 +25,8 @@ const App = ({ Component, pageProps }) => {
     return (
         <>
             <div className="font-Roboto">
+                <Navbar />
                 <Component {...pageProps} />
-                {/* <Navbar /> */}
                 <Analytics />
             </div>
         </>

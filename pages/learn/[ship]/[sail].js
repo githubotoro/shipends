@@ -1,197 +1,175 @@
-import {
-	FetchIndex,
-	Render,
-	MDXComponents,
-	FetchMarkdown,
-} from "../../../components";
-
-import { MDXRemote } from "next-mdx-remote";
-import { MDXProvider } from "@mdx-js/react";
-
-import { Octokit } from "octokit";
-import { serialize } from "next-mdx-remote/serialize";
-import matter from "gray-matter";
-
-import rehypeSlug from "rehype-slug";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeHighlight from "rehype-highlight";
-
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+import { Octokit } from "octokit";
+import { MDXRemote } from "next-mdx-remote";
+
+import { Constants, Render, MDXComponents, Loading } from "../../../components";
+
 export const getStaticProps = async (context) => {
-	const octokit = new Octokit({
-		auth: process.env.NEXT_PUBLIC_GIT_TOKEN,
-	});
+    const octokit = new Octokit({
+        auth: process.env.NEXT_PUBLIC_GIT_TOKEN,
+    });
 
-	const { params } = context;
+    const { params } = context;
 
-	const owner = `shipends`;
-	const repo = `ships`;
+    const owner = Constants.owner;
+    const repo = Constants.repo;
+    const pathMarkdown = `${params.ship}/${params.sail}.md`;
 
-	const pathMarkdown = `${params.ship}/${params.sail}.md`;
-	const responseMarkdown = await octokit.request(
-		"GET /repos/{owner}/{repo}/contents/{path}{?ref}",
-		{
-			owner: owner,
-			repo: repo,
-			path: pathMarkdown,
-		}
-	);
+    let responseMarkdown;
 
-	const { frontmatter, source } = await Render({ responseMarkdown });
+    try {
+        responseMarkdown = await octokit.request(
+            "GET /repos/{owner}/{repo}/contents/{path}{?ref}",
+            {
+                owner: owner,
+                repo: repo,
+                path: pathMarkdown,
+            }
+        );
+    } catch (err) {
+        return {
+            notFound: true,
+        };
+    }
 
-	const pathIndex = `${params.ship}/index.json`;
-	const responseIndex = await octokit.request(
-		"GET /repos/{owner}/{repo}/contents/{path}{?ref}",
-		{
-			owner: owner,
-			repo: repo,
-			path: pathIndex,
-		}
-	);
+    const { frontmatter, source } = await Render({ responseMarkdown });
 
-	const index = JSON.parse(Buffer.from(responseIndex.data.content, "base64"));
+    const pathIndex = `${params.ship}/index.json`;
+    const responseIndex = await octokit.request(
+        "GET /repos/{owner}/{repo}/contents/{path}{?ref}",
+        {
+            owner: owner,
+            repo: repo,
+            path: pathIndex,
+        }
+    );
 
-	const parent = index.parent;
-	const sections = index.sections;
+    const index = JSON.parse(Buffer.from(responseIndex.data.content, "base64"));
 
-	return {
-		props: {
-			frontmatter: frontmatter,
-			source: source,
-			parent: parent,
-			sections: sections,
-		},
-	};
+    return {
+        props: {
+            frontmatter: frontmatter,
+            source: source,
+            index: index,
+        },
+        revalidate: 86400,
+    };
 };
 
 export const getStaticPaths = async () => {
-	const paths = [
-		{
-			params: {
-				ship: "hardhat",
-				sail: "prologue",
-			},
-		},
-		{
-			params: {
-				ship: "hardhat",
-				sail: "1_setting_up_hardhat",
-			},
-		},
-		{
-			params: {
-				ship: "hardhat",
-				sail: "2_writing_smart_contracts",
-			},
-		},
+    const paths = [
+        {
+            params: {
+                ship: "hardhat",
+                sail: "prologue",
+            },
+        },
+    ];
 
-		// {
-		// 	params: {
-		// 		ship: "hardhat",
-		// 		sail: "3_testing_contracts",
-		// 	},
-		// },
-		// {
-		// 	params: {
-		// 		ship: "hardhat",
-		// 		sail: "4_intro_to_artifacts_and_cache",
-		// 	},
-		// },
-		// {
-		// 	params: {
-		// 		ship: "hardhat",
-		// 		sail: "5_calling_contract_functions",
-		// 	},
-		// },
-		// {
-		// 	params: {
-		// 		ship: "hardhat",
-		// 		sail: "6_going_live",
-		// 	},
-		// },
-		// {
-		// 	params: {
-		// 		ship: "hardhat",
-		// 		sail: "7_verifying_on_etherscan",
-		// 	},
-		// },
-		// {
-		// 	params: {
-		// 		ship: "hardhat",
-		// 		sail: "epilogue",
-		// 	},
-		// },
-	];
-
-	return {
-		paths: paths,
-		fallback: false,
-	};
+    return {
+        paths: paths,
+        fallback: true,
+    };
 };
 
-const Sail = ({ frontmatter, source, parent, sections }) => {
-	const Router = useRouter();
+const Sail = ({ frontmatter, source, index }) => {
+    const Router = useRouter();
 
-	return (
-		<>
-			<div className="flex flex-col p-3 lg:flex-row items-start place-content-center w-full bg-bgSubtle">
-				<div
-					className="flex lg:flex flex-col border border-borderDefault rounded-md mr-3
-				text-fgMuted text-normal bg-bgSubtle w-60"
-				>
-					<div
-						className="mb-1 -mt-[1px] -ml-[1px] -mr-[1px] py-1 px-2 bg-bgInset text-fgDefault font-bold rounded-t-md
-					border border-borderDefault text-2xl text-center"
-					>
-						{parent.charAt(0).toUpperCase() + parent.slice(1)}
-					</div>
-					{sections.map((section, index) => {
-						return (
-							<Link
-								key={index}
-								href={{
-									pathname: "/learn/[ship]/[sail]",
-									query: { ship: parent, sail: section.path },
-								}}
-							>
-								<div
-									className={`truncate rounded-md py-1 px-2 cursor-pointer mb-1
-								transition ease-in-out delay-50 duration-200 mx-1
+    if (Router.isFallback) {
+        return <Loading />;
+    }
+
+    return (
+        <>
+            <div
+                className="py-[4px] px-[4px] md:py-[6px] md:px-[8px] flex flex-col items-center place-content-center w-full
+            bg-bgSubtle text-xs md:text-sm font-normal"
+            >
+                <div
+                    className="flex flex-col border border-isGreyMuted rounded-lg
+				             text-isZeus text-normal bg-bgInset w-full lg:max-w-[1412px]"
+                >
+                    Some Content
+                </div>
+            </div>
+
+            {/* NAVIGATION PANEL */}
+            <div
+                className="flex flex-col p-[6px] md:p-[10px] lg:flex-row items-start place-content-center w-full
+            bg-isWhite text-xs md:text-sm lg:text-md font-normal"
+            >
+                <div
+                    className="hidden lg:flex flex-col border border-isGreyMuted rounded-md mr-[12px]
+					text-isGrey bg-isWhite min-w-[200px] max-w-[200px]"
+                >
+                    <div
+                        className="-ml-[1px] -mr-[1px] -mt-[1px] py-[4px] px-[4px] md:py-[6px] md:px-[8px]
+						font-black bg-gradient-to-br from-isZeus to-isZeus text-isWhite rounded-t-md
+					border border-isGreyMuted text-lg md:text-xl lg:text-2xl text-center mb-[8px]"
+                    >
+                        {index.parent.charAt(0).toUpperCase() +
+                            index.parent.slice(1)}
+                    </div>
+
+                    {index.sections.map((section, sectionIndex) => {
+                        return (
+                            <div
+                                key={sectionIndex}
+                                className="grid grid-cols-8 content-center"
+                            >
+                                <Link
+                                    className="col-span-8"
+                                    href={{
+                                        pathname: "/learn/[ship]/[sail]",
+                                        query: {
+                                            ship: index.parent,
+                                            sail: index[section].path,
+                                        },
+                                    }}
+                                >
+                                    <div
+                                        className={` truncate rounded-md py-[4px] px-[8px] cursor-pointer 
+								transition ease-in-out delay-50 duration-200 mx-[6px] mb-[6px] lg:mx-[8px] lg:mb-[8px]
 								${
-									section.path === Router.query.sail
-										? "bg-accentSubtle text-accentEmphasis font-normal"
-										: "bg-bgSubtle hover:bg-bgInset hover:text-fgDefault"
-								}`}
-								>
-									{section.title}
-								</div>
-							</Link>
-						);
-					})}
-				</div>
+                                    index[section].path === Router.query.sail
+                                        ? "bg-isAzureSubtle text-isAzure font-normal"
+                                        : "hover:bg-isSilverSubtle hover:text-isZeus"
+                                }`}
+                                    >
+                                        {index[section].title}{" "}
+                                    </div>
+                                </Link>
+                            </div>
+                        );
+                    })}
+                </div>
+                {/* NAVIGATION PANEL */}
 
-				<div
-					className="flex flex-col lg:ml-0 border border-borderDefault rounded-md
-				             text-fgDefault text-normal bg-bgSubtle w-full lg:min-w-[900px] lg:max-w-[900px]"
-				>
-					<div
-						className="-ml-[1px] -mr-[1px] -mt-[1px] py-1 px-2 bg-bgInset text-fgDefault font-bold rounded-t-md
-					border border-borderDefault text-2xl text-center"
-					>
-						{frontmatter.title}&nbsp;&nbsp;
-						<span className="text-accentEmphasis bg-accentSubtle rounded-lg text-xl py-1 px-2">
-							--takes {frontmatter.takes} min.
-						</span>
-					</div>
-					<div className="my-2 mx-3">
-						<MDXRemote components={MDXComponents} {...source} />
-					</div>
-				</div>
-			</div>
-		</>
-	);
+                {/* MARKDOWN PAGE */}
+                <div
+                    className="flex flex-col lg:ml-0 border border-isGreyMuted rounded-lg
+				             text-isZeus text-normal bg-isWhite w-full lg:max-w-[1200px]"
+                >
+                    <div
+                        className="-ml-[1px] -mr-[1px] -mt-[1px] py-[4px] px-[4px] md:py-[6px] md:px-[8px]
+						font-black bg-gradient-to-br from-isAzure to-isAzure text-isWhite rounded-t-md
+					border border-isGreyMuted text-lg md:text-xl lg:text-2xl text-center"
+                    >
+                        {frontmatter.title}&nbsp;&nbsp;
+                        <span className="text-isAzure bg-isWhite rounded-lg text-md md:text-lg py-[2px] px-[4px] md:py-[4px] md:px-[8px]">
+                            --takes {frontmatter.takes} min.
+                        </span>
+                    </div>
+                    <div className="my-[4px] mx-[12px] md:my-[10px] md:mx-[24px] lg:my-[16px] lg:mx-[36px]">
+                        <MDXRemote components={MDXComponents} {...source} />
+                    </div>
+                </div>
+                {/* MARKDOWN PAGE */}
+            </div>
+        </>
+    );
 };
 
 export default Sail;
