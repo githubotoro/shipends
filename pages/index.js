@@ -8,14 +8,8 @@ const Home = () => {
 		<>
 			<Head>
 				<title>Shipends</title>
-				<meta
-					name="description"
-					content="We help you ship Web3 products faster than the speed of light."
-				/>
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1"
-				/>
+				<meta name="description" content="We help you ship Web3 products faster than the speed of light." />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main>

@@ -6,17 +6,17 @@ import { getActive } from "./Active";
 import { routes } from "./Routes";
 
 const Navbar = () => {
-    const router = useRouter();
-    const [isActive, setIsActive] = useState("");
+	const router = useRouter();
+	const [isActive, setIsActive] = useState("");
 
-    useEffect(() => {
-        const currActive = getActive(router.asPath);
-        setIsActive(currActive);
-    }, [router]);
+	useEffect(() => {
+		const currActive = getActive(router.asPath);
+		setIsActive(currActive);
+	}, [router]);
 
-    return (
-        <>
-            {/* <div className="sticky bottom-0 flex flex-col items-center place-content-center bg-transparent -mt-[90px]">
+	return (
+		<>
+			{/* <div className="sticky bottom-0 flex flex-col items-center place-content-center bg-transparent -mt-[90px]">
                 <div className="p-3 flex flex-col w-full max-w-2xl items-center place-content-center">
                     <div
                         className="p-2 flex flex-row w-full bg-bianca items-center place-content-center rounded-lg
@@ -52,9 +52,37 @@ const Navbar = () => {
                 </div>
             </div> */}
 
-            <div className="bg-fgDefault h-10"></div>
-        </>
-    );
+			<div className="flex flex-col w-full place-content-center items-center sticky top-0 bg-isZeus text-center">
+				<div className="flex flex-row w-full max-w-xl justify-between py-[6px] px-[12px]">
+					{routes.map((route, index) => {
+						return (
+							<Link href={`${route.path}`} key={index}>
+								<div
+									id={`${route.id}`}
+									className={`px-[6px] rounded-lg text-md md:text-lg lg:text-xl
+                                    delay-50  transition duration-300 ease-in-out tracking-tight font-bold 
+                                    ${
+										isActive === route.id
+											? "text-isZeus bg-isWhite "
+											: "text-isBianca hover:bg-isWhite hover:text-isZeus"
+									}`}
+								>
+									{route.display}
+									{/* <svg
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 24 24"
+										className={`w-8 h-8 ${isActive === route.id ? "fill-bianca" : "fill-indigo"}`}
+									>
+										{getIcon(route.id)}
+									</svg> */}
+								</div>
+							</Link>
+						);
+					})}
+				</div>
+			</div>
+		</>
+	);
 };
 
 export default Navbar;

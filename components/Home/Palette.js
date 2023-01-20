@@ -3,14 +3,13 @@ import Tooltip from "@mui/material/Tooltip";
 const Palette = () => {
 	const sq = {
 		size: 6,
-		classes:
-			"h-10 w-10 rounded-md drop-shadow-md hover:drop-shadow-lg p-1 m-1",
+		classes: "h-10 w-10 rounded-md drop-shadow-md hover:drop-shadow-lg p-1 m-1",
 	};
 
 	return (
 		<>
 			<div className="flex flex-col items-center">
-				<div className="font-black text-3xl">Colour Palette</div>
+				<div className="text-3xl font-black">Colour Palette</div>
 
 				<div className={`flex flex-row items-center justify-center`}>
 					<Tooltip title="Black" arrow>
