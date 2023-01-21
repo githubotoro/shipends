@@ -39,7 +39,7 @@ export const getStaticProps = async () => {
 const Learn = ({ ships }) => {
 	return (
 		<>
-			<div className="flex min-h-screen text-xs font-normal place-content-center bg-isWhite md:text-sm ">
+			<div className="flex min-h-screen text-xs font-normal place-content-center bg-isLight md:text-sm ">
 				<div className="-mt-[12px] mx-auto max-w-7xl flex-1 p-[12px]">
 					<div
 						className="mt-[20px] sm:mt-[30px] md:mt-[40px] lg:mt-[50px] mb-[20px] w-full text-isZeus
@@ -62,52 +62,63 @@ const Learn = ({ ships }) => {
 							return (
 								<div
 									key={index}
-									className="flex h-full w-full flex-col rounded-lg md:rounded-xl lg:rounded-2xl border-[1px] border-isGreyMuted text-isZeus "
+									className="flex h-full w-full flex-col"
 								>
-									<div
-										className="-mx-[1px] -mt-[1px] h-[120px] md:h-[140px] lg:h-[160px] rounded-t-lg md:rounded-t-xl lg:rounded-t-2xl border-[1px]
-									border-transparent bg-aqua"
+									<img
+										src={ship.banner}
+										className="w-full h-[120px] md:h-[140px] lg:h-[160px] rounded-t-lg md:rounded-t-xl lg:rounded-t-2xl
+									border-transparent object-cover object-center"
 									/>
 
-									<div className="my-[12px] mx-[12px] flex flex-row items-center">
-										<div className="w-6 h-6 rounded-md md:rounded-lg lg:rounded-xl bg-violet md:h-7 md:w-7 lg:h-8 lg:w-8 " />
-										<div className="ml-[12px] text-lg font-bold md:text-xl lg:text-2xl">
-											{ship.name}
+									<div
+										className="flex h-full w-full flex-col rounded-b-lg md:rounded-b-xl lg:rounded-b-2xl border-[1px]
+									border-t-[0px] border-isGreyMuted text-isZeus bg-isWhite"
+									>
+										<div className="my-[12px] mx-[12px] flex flex-row items-center">
+											<img
+												src={ship.logo}
+												className="w-6 h-6 rounded-md md:rounded-lg lg:rounded-xl md:h-7 md:w-7 lg:h-8 lg:w-8
+											drop-shadow-md"
+											/>
+											{/* <div className="w-6 h-6 rounded-md md:rounded-lg lg:rounded-xl bg-violet md:h-7 md:w-7 lg:h-8 lg:w-8 " /> */}
+											<div className="ml-[12px] text-lg font-bold md:text-xl lg:text-2xl">
+												{ship.name}
+											</div>
 										</div>
-									</div>
 
-									<hr className="border-t-[1px] border-isGreyMuted" />
+										<hr className="border-t-[1px] border-isGreyMuted" />
 
-									<div className="m-[12px] text-xs md:text-sm lg:text-md leading-4 text-isGrey md:m-[12px] ">
-										{ship.description}
-									</div>
+										<div className="m-[12px] text-xs md:text-sm lg:text-md leading-4 text-isGrey md:m-[12px] ">
+											{ship.description}
+										</div>
 
-									<div className="mt-auto mb-[12px] mr-[12px] flex flex-col items-end">
-										<Link
-											href={`/learn/${ship.path}/prologue`}
-											passHref
-										>
-											{ship.status === "active" ? (
-												<button
-													className="delay-50 rounded-lg md:rounded-xl lg:rounded-2xl bg-gWater py-[4px]
+										<div className="mt-auto mb-[12px] mr-[12px] flex flex-col items-end">
+											<Link
+												href={`/learn/${ship.path}/prologue`}
+												passHref
+											>
+												{ship.status === "active" ? (
+													<button
+														className="delay-50 rounded-lg md:rounded-xl lg:rounded-2xl bg-gWater py-[4px]
                                                     px-[10px] text-sm font-bold text-isGhost transition duration-300 ease-in-out
                                                     hover:bg-isGhost hover:text-isWhite md:text-md lg:text-lg
                                                 	"
-												>
-													Let&apos;s Ship!
-												</button>
-											) : (
-												<button
-													disabled
-													className="delay-50 cursor-not-allowed rounded-lg md:rounded-xl lg:rounded-2xl bg-isGreyMuted py-[4px]
+													>
+														Let&apos;s Ship!
+													</button>
+												) : (
+													<button
+														disabled
+														className="delay-50 cursor-not-allowed rounded-lg md:rounded-xl lg:rounded-2xl bg-isGreyMuted py-[4px]
                                                     px-[10px] text-sm font-bold text-isGhost transition duration-200 ease-in-out
                                                     hover:bg-isGhost hover:text-isWhite md:text-md lg:text-lg
                                                 	"
-												>
-													Coming Soon.
-												</button>
-											)}
-										</Link>
+													>
+														Coming Soon.
+													</button>
+												)}
+											</Link>
+										</div>
 									</div>
 								</div>
 							);

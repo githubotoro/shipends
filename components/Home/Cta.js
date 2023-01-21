@@ -24,7 +24,7 @@ const Cta = () => {
 	`;
 	return (
 		<>
-			<div className=" flex flex-col bg-isWhite bg-top">
+			<div className=" flex flex-col bg-isLight bg-top">
 				<div className="flex flex-col items-center w-full min-h-screen text-center place-content-start">
 					{/* TAGLINE */}
 					<ResponsiveFontSize>
