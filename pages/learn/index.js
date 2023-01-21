@@ -17,11 +17,14 @@ export const getStaticProps = async () => {
 	const repo = Constants.repo;
 	const path = "index.json";
 
-	const response = await octokit.request("GET /repos/{owner}/{repo}/contents/{path}{?ref}", {
-		owner: owner,
-		repo: repo,
-		path: path,
-	});
+	const response = await octokit.request(
+		"GET /repos/{owner}/{repo}/contents/{path}{?ref}",
+		{
+			owner: owner,
+			repo: repo,
+			path: path,
+		}
+	);
 
 	const json = JSON.parse(Buffer.from(response.data.content, "base64"));
 	const ships = json.ships;
@@ -39,15 +42,23 @@ const Learn = ({ ships }) => {
 			<div className="flex min-h-screen text-xs font-normal place-content-center bg-isWhite md:text-sm ">
 				<div className="-mt-[12px] mx-auto max-w-7xl flex-1 p-[12px]">
 					<div
-						className="mt-[20px] sm:mt-[30px] md:mt-[40px] lg:mt-[50px] mb-[20px] w-full bg-gradient-to-r from-isZeus to-isZeus
-					bg-clip-text text-center text-xl font-bold text-transparent md:text-2xl lg:text-3xl leading-tighter"
+						className="mt-[20px] sm:mt-[30px] md:mt-[40px] lg:mt-[50px] mb-[20px] w-full text-isZeus
+					bg-clip-text text-center text-xl font-black text-transparent md:text-2xl lg:text-3xl leading-tighter"
 					>
 						choose your&nbsp;
-						<span className="rounded-md md:rounded-lg lg:rounded-xl bg-gradient-to-r from-isZeus to-isZeus py-[0px] px-[6px] font-extrabold text-isWhite md:py-[1px] md:px-[8px] lg:py-[2px] lg:px-[10px]">
+						<span
+							className="rounded-md md:rounded-lg lg:rounded-xl
+						bg-isViolet py-[0px] px-[6px] font-extrabold text-isWhite md:py-[1px] md:px-[8px] lg:py-[2px] lg:px-[10px]"
+						>
 							next
 						</span>
 						&nbsp;
-						<span className="font-black">superpower!</span>
+						<span
+							className=" font-black text-isZeus
+				"
+						>
+							superpower!
+						</span>
 					</div>
 					<div className="grid grid-cols-1 gap-[12px] sm:grid-cols-2 md:grid-cols-3">
 						{ships.map((ship, index) => {
@@ -75,7 +86,10 @@ const Learn = ({ ships }) => {
 									</div>
 
 									<div className="mt-auto mb-[12px] mr-[12px] flex flex-col items-end">
-										<Link href={`/learn/${ship.path}/prologue`} passHref>
+										<Link
+											href={`/learn/${ship.path}/prologue`}
+											passHref
+										>
 											{ship.status === "active" ? (
 												<button
 													className="delay-50 rounded-lg md:rounded-xl lg:rounded-2xl bg-gWater py-[4px]

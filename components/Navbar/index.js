@@ -60,7 +60,7 @@ const Navbar = () => {
 								<div
 									id={`${route.id}`}
 									className={`px-[6px] rounded-lg text-md md:text-lg lg:text-xl
-                                    delay-50  transition duration-300 ease-in-out tracking-tight font-bold 
+                                    delay-50 transition duration-300 ease-in-out tracking-tight font-bold 
                                     ${
 										isActive === route.id
 											? "text-isZeus bg-isWhite "
@@ -68,13 +68,6 @@ const Navbar = () => {
 									}`}
 								>
 									{route.display}
-									{/* <svg
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 24 24"
-										className={`w-8 h-8 ${isActive === route.id ? "fill-bianca" : "fill-indigo"}`}
-									>
-										{getIcon(route.id)}
-									</svg> */}
 								</div>
 							</Link>
 						);
