@@ -43,7 +43,7 @@ const Learn = ({ ships }) => {
 				<div className="-mt-[12px] mx-auto max-w-7xl flex-1 p-[12px]">
 					<div
 						className="mt-[20px] sm:mt-[30px] md:mt-[40px] lg:mt-[50px] mb-[20px] w-full text-isZeus
-					bg-clip-text text-center text-xl font-black text-transparent md:text-2xl lg:text-3xl leading-tighter"
+					bg-clip-text text-center text-xl font-black md:text-2xl lg:text-3xl leading-tighter"
 					>
 						choose your&nbsp;
 						<span
@@ -53,10 +53,7 @@ const Learn = ({ ships }) => {
 							next
 						</span>
 						&nbsp;
-						<span
-							className=" font-black text-isZeus
-				"
-						>
+						<span className=" font-black text-isZeus">
 							superpower!
 						</span>
 					</div>
