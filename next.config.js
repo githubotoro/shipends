@@ -1,12 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
-    images: {
-        unoptimized: true,
-    },
-    compiler: {
-        styledComponents: true,
-    },
+	reactStrictMode: true,
+	images: {
+		domains: ["imgur.com", "i.imgur.com"],
+		unoptimized: true,
+	},
+	compiler: {
+		styledComponents: true,
+	},
 };
 
 // const withMDX = require("@next/mdx")({

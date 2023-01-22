@@ -50,15 +50,14 @@ const Cta = () => {
 					{/* TAGLINE */}
 
 					{/* THEME BANNER */}
-					<div className="p-[12px]">
-						<img
-							className="rounded-xl md:rounded-xl lg:rounded-3xl
-					 w-full max-w-4xl
-					h-[200px] sm:h-[250px] md:h-[280px] lg:h-[300px]
-					object-cover object-center"
-							src="https://i.imgur.com/xKRjivO.jpg"
-							alt="Shipends Theme Banner"
-						/>
+					<div className="p-[12px] flex flex-col w-full max-w-4xl h-[200px] sm:h-[250px] md:h-[280px] lg:h-[300px]">
+						<div className="relative w-full h-full">
+							<Image
+								src={"https://i.imgur.com/xKRjivO.jpg"}
+								layout={"fill"}
+								className="object-cover object-center rounded-xl md:rounded-xl lg:rounded-3xl"
+							/>
+						</div>
 					</div>
 					{/* THEME BANNER */}
 

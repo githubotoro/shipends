@@ -5,3 +5,15 @@
 .border-animate {
 	transition: box-shadow 0.2s linear;
 }
+
+.image-container {
+	width: 100%;
+}
+
+.image {
+	position: unset !important;
+	object-fit: contain;
+	width: 100% !important;
+	position: relative !important;
+	height: unset !important;
+}

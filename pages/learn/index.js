@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config";
 
-import { Image } from "next/image";
+import Image from "next/image";
 import { Octokit } from "octokit";
 
 import { Constants } from "../../components";
@@ -62,25 +62,35 @@ const Learn = ({ ships }) => {
 							return (
 								<div
 									key={index}
-									className="flex h-full w-full flex-col"
+									className="flex flex-col h-full w-full"
 								>
-									<img
-										src={ship.banner}
-										className="w-full h-[120px] md:h-[140px] lg:h-[160px] rounded-t-lg md:rounded-t-xl lg:rounded-t-2xl
-									border-transparent object-cover object-center"
-									/>
+									<div className="flex flex-col w-full h-[120px] md:h-[140px] lg:h-[160px]  ">
+										<div className="relative w-full h-full">
+											<Image
+												src={ship.banner}
+												layout={"fill"}
+												className="object-cover object-center rounded-t-lg md:rounded-t-xl lg:rounded-t-2xl
+											border-transparent"
+											/>
+										</div>
+									</div>
 
 									<div
-										className="flex h-full w-full flex-col rounded-b-lg md:rounded-b-xl lg:rounded-b-2xl border-[1px]
+										className="flex w-full grow flex-col rounded-b-lg md:rounded-b-xl lg:rounded-b-2xl border-[1px]
 									border-t-[0px] border-isGreyMuted text-isZeus bg-isWhite"
 									>
 										<div className="my-[12px] mx-[12px] flex flex-row items-center">
-											<img
-												src={ship.logo}
-												className="w-6 h-6 rounded-md md:rounded-lg lg:rounded-xl md:h-7 md:w-7 lg:h-8 lg:w-8
-											drop-shadow-md"
-											/>
-											{/* <div className="w-6 h-6 rounded-md md:rounded-lg lg:rounded-xl bg-violet md:h-7 md:w-7 lg:h-8 lg:w-8 " /> */}
+											<div className="flex flex-col w-6 h-6 md:h-7 md:w-7 lg:h-8 lg:w-8 ">
+												<div className="relative w-full h-full">
+													<Image
+														src={ship.logo}
+														layout={"fill"}
+														className="object-cover object-center rounded-md md:rounded-lg lg:rounded-xl 
+														drop-shadow-md"
+													/>
+												</div>
+											</div>
+
 											<div className="ml-[12px] text-lg font-bold md:text-xl lg:text-2xl">
 												{ship.name}
 											</div>

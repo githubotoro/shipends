@@ -52,7 +52,7 @@ const Navbar = () => {
                 </div>
             </div> */}
 
-			<div className="flex flex-col w-full place-content-center items-center sticky top-0 bg-isZeus text-center">
+			<div className="z-50 flex flex-col w-full place-content-center items-center sticky top-0 bg-isZeus text-center">
 				<div className="flex flex-row w-full max-w-xl justify-between py-[6px] px-[12px]">
 					{routes.map((route, index) => {
 						return (
