@@ -37,6 +37,20 @@ export const getStaticProps = async () => {
 };
 
 const Learn = ({ ships }) => {
+	const bannerLoader = () => {
+		return (
+			<div
+				className="w-full h-full rounded-t-lg md:rounded-t-xl lg:rounded-t-2xl
+			border-[1px] border-isGreyMuted bg-isWhite p-[20px]"
+			>
+				<div
+					className="animate-pulse w-full h-full bg-isGreyMuted
+					rounded-lg md:rounded-xl lg:rounded-2xl"
+				></div>
+			</div>
+		);
+	};
+
 	return (
 		<>
 			<div className="flex min-h-screen text-xs font-normal place-content-center bg-isLight md:text-sm ">
@@ -67,11 +81,13 @@ const Learn = ({ ships }) => {
 									<div className="flex flex-col w-full h-[120px] md:h-[140px] lg:h-[160px]  ">
 										<div className="relative w-full h-full">
 											<Image
+												loader={bannerLoader}
 												src={ship.banner}
 												layout={"fill"}
 												className="object-cover object-center rounded-t-lg md:rounded-t-xl lg:rounded-t-2xl
 											border-transparent"
 											/>
+											{/* {bannerLoader()} */}
 										</div>
 									</div>
 
@@ -84,6 +100,7 @@ const Learn = ({ ships }) => {
 												<div className="relative w-full h-full">
 													<Image
 														src={ship.logo}
+														alt={`${ship.name} banner`}
 														layout={"fill"}
 														className="object-cover object-center rounded-md md:rounded-lg lg:rounded-xl 
 														drop-shadow-md"

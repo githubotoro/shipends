@@ -54,6 +54,7 @@ const Cta = () => {
 						<div className="relative w-full h-full">
 							<Image
 								src={"https://i.imgur.com/xKRjivO.jpg"}
+								alt={"Shipends Theme Banner"}
 								layout={"fill"}
 								className="object-cover object-center rounded-xl md:rounded-xl lg:rounded-3xl"
 							/>
