@@ -5,7 +5,7 @@ import { useState } from "react";
 const ShipCard = ({ ship }) => {
 	const [loading, setLoading] = useState(true);
 
-	const loadingImage = () => {
+	const LoadingImage = () => {
 		return (
 			<>
 				<div
@@ -23,22 +23,19 @@ const ShipCard = ({ ship }) => {
 			<div className="flex flex-col w-full h-full">
 				<div className="flex flex-col w-full h-[120px] md:h-[140px] lg:h-[160px]  ">
 					<div className="relative w-full h-full">
-						{loading ? (
-							<>{loadingImage()}</>
-						) : (
-							<Image
-								src={ship.banner}
-								alt={`${ship.name} banner`}
-								layout={"fill"}
-								className="object-cover object-center border-transparent rounded-t-lg md:rounded-t-xl lg:rounded-t-2xl"
-								placeholder="blur"
-								blurDataURL="./assets/banners/hardhat.jpg"
-								onLoadedData={() => {
-									setLoading(false);
-									console.log("loading complete");
-								}}
-							/>
-						)}
+						<LoadingImage
+							className={`${loading ? "hidden" : "flex"}`}
+						/>
+						<Image
+							src={ship.banner}
+							alt={`${ship.name} banner`}
+							layout={"fill"}
+							className={`object-cover object-center border-transparent rounded-t-lg md:rounded-t-xl lg:rounded-t-2xl
+							${loading ? "hidden" : "flex"}`}
+							onLoadingComplete={() => {
+								setLoading(false);
+							}}
+						/>
 					</div>
 				</div>
 
@@ -58,7 +55,9 @@ const ShipCard = ({ ship }) => {
 							</div>
 						</div>
 
-						<div className="ml-[12px] text-lg font-bold md:text-xl lg:text-2xl">{ship.name}</div>
+						<div className="ml-[12px] text-lg font-bold md:text-xl lg:text-2xl">
+							{ship.name}
+						</div>
 					</div>
 
 					<hr className="border-t-[1px] border-isGrayLightEmphasis4" />
