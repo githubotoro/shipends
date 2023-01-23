@@ -41,7 +41,7 @@ const Learn = ({ ships }) => {
 		return (
 			<div
 				className="w-full h-full rounded-t-lg md:rounded-t-xl lg:rounded-t-2xl
-			border-[1px] border-isGreyMuted bg-isWhite p-[20px]"
+			border-[1px] border-isGrayLightEmphasis4 bg-isWhite p-[20px]"
 			>
 				<div
 					className="animate-pulse w-full h-full bg-isGreyMuted
@@ -53,21 +53,22 @@ const Learn = ({ ships }) => {
 
 	return (
 		<>
-			<div className="flex min-h-screen text-xs font-normal place-content-center bg-isLight md:text-sm ">
+			<div className="flex min-h-screen text-xs font-normal place-content-center bg-isGrayLightEmphasis6 md:text-sm ">
 				<div className="-mt-[12px] mx-auto max-w-7xl flex-1 p-[12px]">
 					<div
-						className="mt-[20px] sm:mt-[30px] md:mt-[40px] lg:mt-[50px] mb-[20px] w-full text-isZeus
+						className="mt-[20px] sm:mt-[30px] md:mt-[40px] lg:mt-[50px] mb-[20px] w-full text-isGrayDarkEmphasis6
 					bg-clip-text text-center text-xl font-black md:text-2xl lg:text-3xl leading-tighter"
 					>
 						choose your&nbsp;
 						<span
-							className="rounded-md md:rounded-lg lg:rounded-xl
-						bg-isViolet py-[0px] px-[6px] font-extrabold text-isWhite md:py-[1px] md:px-[8px] lg:py-[2px] lg:px-[10px]"
+							className="rounded-md md:rounded-lg lg:rounded-xl drop-shadow-md
+						bg-gradient-to-br from-isBlueLight to-isBlueDark
+						py-[0px] px-[6px] font-extrabold text-isGrayLightEmphasis6 md:py-[1px] md:px-[8px] lg:py-[2px] lg:px-[10px]"
 						>
 							next
 						</span>
 						&nbsp;
-						<span className=" font-black text-isZeus">
+						<span className=" font-black text-isGrayDarkEmphasis6">
 							superpower!
 						</span>
 					</div>
@@ -81,7 +82,6 @@ const Learn = ({ ships }) => {
 									<div className="flex flex-col w-full h-[120px] md:h-[140px] lg:h-[160px]  ">
 										<div className="relative w-full h-full">
 											<Image
-												loader={bannerLoader}
 												src={ship.banner}
 												layout={"fill"}
 												className="object-cover object-center rounded-t-lg md:rounded-t-xl lg:rounded-t-2xl
@@ -93,7 +93,7 @@ const Learn = ({ ships }) => {
 
 									<div
 										className="flex w-full grow flex-col rounded-b-lg md:rounded-b-xl lg:rounded-b-2xl border-[1px]
-									border-t-[0px] border-isGreyMuted text-isZeus bg-isWhite"
+									border-t-[0px] border-isGrayLightEmphasis4 text-isGrayDarkEmphasis6 bg-isWhite"
 									>
 										<div className="my-[12px] mx-[12px] flex flex-row items-center">
 											<div className="flex flex-col w-6 h-6 md:h-7 md:w-7 lg:h-8 lg:w-8 ">
@@ -113,9 +113,9 @@ const Learn = ({ ships }) => {
 											</div>
 										</div>
 
-										<hr className="border-t-[1px] border-isGreyMuted" />
+										<hr className="border-t-[1px] border-isGrayLightEmphasis4" />
 
-										<div className="m-[12px] text-xs md:text-sm lg:text-md leading-4 text-isGrey md:m-[12px] ">
+										<div className="m-[12px] text-xs md:text-sm lg:text-md leading-4 text-isGrayLight md:m-[12px] ">
 											{ship.description}
 										</div>
 
@@ -126,9 +126,9 @@ const Learn = ({ ships }) => {
 											>
 												{ship.status === "active" ? (
 													<button
-														className="delay-50 rounded-lg md:rounded-xl lg:rounded-2xl bg-gWater py-[4px]
-                                                    px-[10px] text-sm font-bold text-isGhost transition duration-300 ease-in-out
-                                                    hover:bg-isGhost hover:text-isWhite md:text-md lg:text-lg
+														className="delay-50 rounded-lg md:rounded-xl lg:rounded-2xl  py-[4px]
+                                                    px-[10px] text-sm font-bold text-isGrayDark3 transition duration-200 ease-in-out
+                                                    bg-isGrayLightEmphasis5 hover:bg-isGrayLight hover:text-isGrayLightEmphasis6 md:text-md lg:text-lg
                                                 	"
 													>
 														Let&apos;s Ship!
@@ -136,9 +136,9 @@ const Learn = ({ ships }) => {
 												) : (
 													<button
 														disabled
-														className="delay-50 cursor-not-allowed rounded-lg md:rounded-xl lg:rounded-2xl bg-isGreyMuted py-[4px]
-                                                    px-[10px] text-sm font-bold text-isGhost transition duration-200 ease-in-out
-                                                    hover:bg-isGhost hover:text-isWhite md:text-md lg:text-lg
+														className="delay-50 cursor-not-allowed rounded-lg md:rounded-xl lg:rounded-2xl  py-[4px]
+                                                    px-[10px] text-sm font-bold text-isGrayDark3 transition duration-200 ease-in-out
+                                                    bg-isGrayLightEmphasis5 hover:bg-isGrayLight hover:text-isGrayLightEmphasis6 md:text-md lg:text-lg
                                                 	"
 													>
 														Coming Soon.

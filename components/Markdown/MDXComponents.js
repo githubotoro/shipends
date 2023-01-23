@@ -11,8 +11,8 @@ const MDXComponents = {
 	h2: (props) => {
 		return (
 			<h2
-				className="mt-[8px] md:mt-[12px] lg:mt-[16px] mb-[8px] md:mb-[12px] lg:mb-[16px
-				border-b-[1px] border-isGreyMuted text-lg md:text-xl lg:text-2xl
+				className="mt-[8px] md:mt-[12px] lg:mt-[16px] mb-[8px] md:mb-[12px] lg:mb-[16px]
+				border-b-[1px] border-isGrayLightEmphasis4 text-lg md:text-xl lg:text-2xl
 				font-semibold"
 				{...props}
 			/>
@@ -28,7 +28,9 @@ const MDXComponents = {
 		);
 	},
 	p: (props) => {
-		return <div className="mb-[8px] md:mb-[12px] lg:mb-[16px]" {...props} />;
+		return (
+			<div className="mb-[8px] md:mb-[12px] lg:mb-[16px]" {...props} />
+		);
 	},
 	em: (props) => {
 		return <span className="italic" {...props} />;
@@ -47,7 +49,7 @@ const MDXComponents = {
 		if (props.href.slice(0, 2) === "./") {
 			return (
 				<Link
-					className="text-isLink hover:cursor-pointer hover:border-b hover:border-isLink"
+					className="text-isBlueDarkEmphasis hover:cursor-pointer hover:border-b-[2px] hover:border-isBlueDarkEmphasis"
 					href={{
 						pathname: "/learn/[ship]/[sail]",
 						query: {
@@ -62,15 +64,22 @@ const MDXComponents = {
 		} else if (props.href.charAt(0) === "#") {
 			return (
 				<div className="flex flex-row group">
-					<Link target="_self" rel="noopener noreferrer" passHref {...props} />
+					<Link
+						target="_self"
+						rel="noopener noreferrer"
+						passHref
+						{...props}
+					/>
 					&nbsp;
-					<div className="hidden font-bold text-isGrey group-hover:block">#</div>
+					<div className="hidden font-bold text-isGrayDark2 group-hover:block">
+						#
+					</div>
 				</div>
 			);
 		} else {
 			return (
 				<Link
-					className="text-isLink hover:cursor-pointer hover:border-b hover:border-isLink"
+					className="text-isBlueDarkEmphasis hover:cursor-pointer hover:border-b-[2px] hover:border-isBlueDarkEmphasis"
 					target="_blank"
 					rel="noopener noreferrer"
 					passHref
@@ -83,10 +92,13 @@ const MDXComponents = {
 		return (
 			<blockquote
 				className="mb-[8px] md:mb-[12px] lg:mb-[16px] rounded-r-lg border-l-[5px]
-				border-isGhost bg-isGreySubtle py-[4px] px-[6px] leading-tight
+				border-isGrayLightEmphasis4 bg-isGrayLightEmphasis6 py-[4px] px-[6px] leading-tight
                  tracking-wide  md:border-l-[6px] lg:border-l-[8px] md:px-[10px] md:py-[8px]"
 			>
-				<div className="mt-[6px] md:mt-[8px] lg:mt-[12px] ml-[6px] mr-[6px] text-isGhost" {...props} />
+				<div
+					className="mt-[6px] md:mt-[8px] lg:mt-[12px] ml-[6px] mr-[6px] text-isGhost"
+					{...props}
+				/>
 			</blockquote>
 		);
 	},
@@ -96,25 +108,37 @@ const MDXComponents = {
 	ul: (props) => {
 		return (
 			<div className="mb-[8px] md:mb-[12px] lg:mb-[16px] ml-[15px] list-disc leading-tight md:ml-[20px]">
-				<div className="mb-[8px] md:mb-[12px] lg:mb-[16px]" {...props} />
+				<div
+					className="mb-[8px] md:mb-[12px] lg:mb-[16px]"
+					{...props}
+				/>
 			</div>
 		);
 	},
 	ol: (props) => {
 		return (
 			<div className="mb-[8px] md:mb-[12px] lg:mb-[16px] ml-[15px] list-decimal leading-tight md:ml-[20px]">
-				<div className="mb-[8px] md:mb-[12px] lg:mb-[16px]" {...props} />
+				<div
+					className="mb-[8px] md:mb-[12px] lg:mb-[16px]"
+					{...props}
+				/>
 			</div>
 		);
 	},
 	img: (props) => {
-		return <Image {...props} alt="image" className="rounded-md" />;
+		return (
+			<Image
+				{...props}
+				alt="image"
+				className="rounded-md md:rounded-lg lg:rounded-xl"
+			/>
+		);
 	},
 	code: (props) => {
 		return (
 			<span
 				className="
-				inline-block rounded-md bg-isGreySubtle align-middle font-mono text-isGhost
+				inline-block rounded-md bg-isGrayLightEmphasis5 align-middle font-mono text-isGrayDarkEmphasis4
 				 py-[0.5px] px-[4px] md:py-[1px] md:px-[5px] lg:[1.5px] lg:px-[6px] font-medium
 				 text-2xs md:text-xs lg:text-sm"
 				{...props}
@@ -125,7 +149,7 @@ const MDXComponents = {
 		return (
 			<pre
 				className="mb-[8px] md:mb-[12px] lg:mb-[16px] md:py-[8px] md:px-[16px]
-			 overflow-x-auto rounded-md md:rounded-lg lg:rounded-xl bg-isGreySubtle py-[6px] px-[12px]
+			 overflow-x-auto rounded-md md:rounded-lg lg:rounded-xl bg-isGrayLightEmphasis6 py-[6px] px-[12px]
 			 text-2xs md:text-xs lg:text-sm"
 			>
 				<code className="font-mono" {...props} />

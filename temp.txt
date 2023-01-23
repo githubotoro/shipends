@@ -1,0 +1,13 @@
+isGrayDark: "rgb(108, 108, 112)",
+				isGrayDark2: "rgb(142, 142, 147)",
+				isGrayDark3: "rgb(174, 174, 178)",
+				isGrayDark4: "rgb(188, 188, 192)",
+				isGrayDark5: "rgb(216, 216, 220)",
+				isGrayDark6: "rgb(235, 235, 240)",
+
+				isGrayDarkEmphasis: "rgb(142, 142, 147)",
+				isGrayDarkEmphasis2: "rgb(174, 174, 178)",
+				isGrayDarkEmphasis3: "rgb(199, 199, 204)",
+				isGrayDarkEmphasis4: "rgb(209, 209, 214)",
+				isGrayDarkEmphasis5: "rgb(229, 229, 234)",
+				isGrayDarkEmphasis6: "rgb(242, 242, 247)",

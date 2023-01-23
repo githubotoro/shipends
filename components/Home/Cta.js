@@ -24,7 +24,7 @@ const Cta = () => {
 	`;
 	return (
 		<>
-			<div className=" flex flex-col bg-isLight bg-top">
+			<div className=" flex flex-col bg-isGrayLightEmphasis6 bg-top">
 				<div className="flex flex-col items-center w-full min-h-screen text-center place-content-start">
 					{/* TAGLINE */}
 					<ResponsiveFontSize>
@@ -34,14 +34,14 @@ const Cta = () => {
 						>
 							<div
 								className="flex flex-col px-1 text-transparent
-				bg-gradient-to-r from-isGolden to-isPink bg-clip-text"
+				bg-gradient-to-r from-isOrangeDark to-isPinkDark bg-clip-text"
 							>
 								ship cool products
 							</div>
 							<div
 								className="-mt-[12px] sm:-mt-[16px] md:-mt-[16px] lg:-mt-[20px] flex flex-col px-1
 								italic text-transparent
-				bg-gradient-to-br from-isZeus to-isZeus bg-clip-text"
+				bg-gradient-to-br from-isGrayDarkEmphasis6 to-isGrayDarkEmphasis6 bg-clip-text"
 							>
 								without reading docs
 							</div>
@@ -64,12 +64,12 @@ const Cta = () => {
 
 					{/* DESCRIPTION */}
 					<div
-						className="py-[12px] px-[12px] font-bold text-isGrey
+						className="py-[12px] px-[12px] font-bold text-isGrayDark2
 			  text-md md:text-lg lg:text-xl tracking-tight"
 					>
 						We go through Web3 docs, simplify them and create notes,
 						so you can start shipping{" "}
-						<div className="italic text-isZeus font-extrabold">
+						<div className="italic text-isGrayDarkEmphasis6 font-extrabold">
 							-- within 5 min.
 						</div>
 					</div>
@@ -78,9 +78,10 @@ const Cta = () => {
 					{/* GET STARTED */}
 					<Link href="/learn" className="pt-[4px]">
 						<div
-							className="border-animate shadow-[0_0_0_0px_#99EBFF] hover:shadow-[0_0_0_6px_#99EBFF]
+							className="border-animate shadow-[0_0_0_0px_#70D7FF]
+							hover:shadow-[0_0_0_6px_#70D7FF]
 				 px-[12px] py-[4px] rounded-lg md:rounded-xl lg:rounded-xl
-				 bg-gradient-to-br from-isAzure to-isWater"
+				 bg-gradient-to-br from-isBlueLight to-isBlueDark"
 						>
 							<div
 								className="
