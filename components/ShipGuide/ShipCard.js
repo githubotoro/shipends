@@ -24,7 +24,7 @@ const ShipCard = ({ ship }) => {
 				<div className="flex flex-col w-full h-[120px] md:h-[140px] lg:h-[160px]  ">
 					<div className="relative w-full h-full">
 						<LoadingImage
-							className={`${loading ? "hidden" : "flex"}`}
+							className={`${loading ? "flex" : "hidden"}`}
 						/>
 						<Image
 							src={ship.banner}
