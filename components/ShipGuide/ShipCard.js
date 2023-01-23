@@ -9,8 +9,9 @@ const ShipCard = ({ ship }) => {
 		return (
 			<>
 				<div
-					className="w-full h-full border-[1px] border-isGrayLightEmphasis4
-					rounded-t-lg md:rounded-t-xl lg:rounded-t-2xl bg-isWhite p-[12px]"
+					className={`w-full h-full border-[1px] border-isGrayLightEmphasis4
+					rounded-t-lg md:rounded-t-xl lg:rounded-t-2xl bg-isWhite p-[12px]
+					${loading ? "block" : "hidden"}`}
 				>
 					<div className="w-full h-full rounded-lg bg-isGrayLightEmphasis5 md:rounded-xl lg:rounded-2xl animate-pulse"></div>
 				</div>
@@ -23,9 +24,6 @@ const ShipCard = ({ ship }) => {
 			<div className="flex flex-col w-full h-full">
 				<div className="flex flex-col w-full h-[120px] md:h-[140px] lg:h-[160px]  ">
 					<div className="relative w-full h-full">
-						<LoadingImage
-							className={`${loading ? "flex" : "hidden"}`}
-						/>
 						<Image
 							src={ship.banner}
 							alt={`${ship.name} banner`}
@@ -36,6 +34,7 @@ const ShipCard = ({ ship }) => {
 								setLoading(false);
 							}}
 						/>
+						<LoadingImage />
 					</div>
 				</div>
 
