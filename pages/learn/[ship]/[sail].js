@@ -77,6 +77,11 @@ export const getStaticPaths = async () => {
 };
 
 const Sail = ({ frontmatter, source, index }) => {
+	const Router = useRouter();
+	if (Router.isFallback) {
+		return <Loading />;
+	}
+
 	const nextIndex = index[frontmatter.section.toString()].nextIndex;
 	const prevIndex = index[frontmatter.section.toString()].prevIndex;
 
@@ -85,13 +90,7 @@ const Sail = ({ frontmatter, source, index }) => {
 	const prevSection =
 		index[index[frontmatter.section.toString()].prevIndex].path;
 
-	const [openSectionMenu, setOpenSectionMenu] = useState(false);
-
-	const Router = useRouter();
-
-	if (Router.isFallback) {
-		return <Loading />;
-	}
+	// const [openSectionMenu, setOpenSectionMenu] = useState(false);
 
 	return (
 		<>
@@ -104,12 +103,12 @@ const Sail = ({ frontmatter, source, index }) => {
 						>
 							<div
 								className="relative inline-block text-left"
-								onMouseEnter={() => {
-									setOpenSectionMenu(true);
-								}}
-								onMouseLeave={() => {
-									setOpenSectionMenu(false);
-								}}
+								// onMouseEnter={() => {
+								// 	setOpenSectionMenu(true);
+								// }}
+								// onMouseLeave={() => {
+								// 	setOpenSectionMenu(false);
+								// }}
 							>
 								<div>
 									<svg
@@ -298,7 +297,7 @@ const Sail = ({ frontmatter, source, index }) => {
 								pathname: "/learn/[ship]/[sail]",
 								query: {
 									ship: index.parent,
-									sail: index[prevIndex].path,
+									sail: prevSection,
 								},
 							}}
 							target="_self"
@@ -335,7 +334,7 @@ const Sail = ({ frontmatter, source, index }) => {
 								pathname: "/learn/[ship]/[sail]",
 								query: {
 									ship: index.parent,
-									sail: index[nextIndex].path,
+									sail: nextSection,
 								},
 							}}
 							target="_self"
