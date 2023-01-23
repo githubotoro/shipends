@@ -24,17 +24,16 @@ const ShipCard = ({ ship }) => {
 			<div className="flex flex-col w-full h-full">
 				<div className="flex flex-col w-full h-[120px] md:h-[140px] lg:h-[160px]  ">
 					<div className="relative w-full h-full">
+						<LoadingImage />
 						<Image
 							src={ship.banner}
 							alt={`${ship.name} banner`}
 							layout={"fill"}
-							className={`object-cover object-center border-transparent rounded-t-lg md:rounded-t-xl lg:rounded-t-2xl
-							${loading ? "hidden" : "flex"}`}
+							className={`object-cover object-center border-transparent rounded-t-lg md:rounded-t-xl lg:rounded-t-2xl`}
 							onLoadingComplete={() => {
 								setLoading(false);
 							}}
 						/>
-						<LoadingImage />
 					</div>
 				</div>
 

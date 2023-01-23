@@ -32,7 +32,7 @@ const Cta = () => {
 							className="mt-[30px] md:mt-[40px] lg:mt-[50px]
 				 w-full max-w-5xl flex flex-col font-black place-content-center"
 						>
-							<div className="flex flex-col px-1 text-transparent bg-gradient-to-r from-isMintDark to-isGreenDark bg-clip-text">
+							<div className="flex flex-col px-1 text-transparent bg-gradient-to-r from-isGolden to-isMagenta bg-clip-text">
 								ship cool products
 							</div>
 							<div
@@ -64,8 +64,11 @@ const Cta = () => {
 						className="py-[12px] px-[12px] font-bold text-isGrayDark2
 						text-md md:text-lg lg:text-xl tracking-tight"
 					>
-						We go through Web3 docs, simplify them and create notes, so you can start shipping{" "}
-						<div className="italic font-extrabold text-isGrayDarkEmphasis6">-- within 5 min.</div>
+						We go through Web3 docs, simplify them and create notes,
+						so you can start shipping{" "}
+						<div className="italic font-extrabold text-isGrayDarkEmphasis6">
+							-- within 5 min.
+						</div>
 					</div>
 					{/* DESCRIPTION */}
 
@@ -74,8 +77,8 @@ const Cta = () => {
 						<div
 							className="border-animate
 							px-[12px] py-[4px] rounded-lg md:rounded-xl lg:rounded-xl
-							bg-gradient-to-br from-isTealLight to-isTealDark shadow-md
-							hover:from-isTealDark hover:to-isTealDarkEmphasis
+							bg-gradient-to-br from-isWater to-isAzure shadow-md
+							hover:from-isAzure hover:to-isBlueDarkEmphasis
 							delay-50 transition duration-300 ease-in-out
 							"
 						>
