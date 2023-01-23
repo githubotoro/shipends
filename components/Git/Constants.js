@@ -1,4 +1,4 @@
 export const Constants = {
-    owner: "shipends",
-    repo: "ships",
+	owner: "udayTanthetaa",
+	repo: "ships",
 };

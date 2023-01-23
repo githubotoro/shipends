@@ -2,10 +2,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: [
-		"./pages/**/*.{js,ts,jsx,tsx}",
-		"./components/**/*.{js,ts,jsx,tsx}",
-	],
+	content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
 	variants: {
 		extend: {
 			display: ["group-hover"],
@@ -169,53 +166,6 @@ module.exports = {
 				isGrayDarkEmphasis5: "rgb(44, 44, 46)",
 				isGrayDarkEmphasis6: "rgb(28, 28, 30)",
 				// == Main Colors ==
-
-				// // Black to White
-				// isBlack: "rgb(0, 0, 0)",
-				// isZeus: "rgb(34, 34, 34)",
-				// isGhost: "rgb(85, 85, 85)",
-				// isGrey: "rgb(119, 119, 119)",
-				// isSilver: "rgb(153, 153, 153)",
-				// isBianca: "rgb(238, 238, 238)",
-				// isLight: "rgb(250, 250, 250)",
-				// isWhite: "rgb(255, 255, 255)",
-
-				// isZeusSubtle: "rgba(34, 34, 34, 0.1)",
-
-				// isGreyMuted: "rgba(119, 119, 119, 0.3)",
-				// isGreySubtle: "rgba(119, 119, 119, 0.1)",
-
-				// isSilverSubtle: "rgba(153, 153, 153, 0.1)",
-
-				// isOcur: "rgb(255, 170, 0)",
-				// isGolden: "rgb(255, 187, 0)",
-				// isOrange: "rgb(253, 119, 2)",
-				// isPink: "rgb(255, 0, 238)",
-				// isFolly: "rgb(255, 0, 102)",
-				// isRed: "rgb(254, 2, 34)",
-
-				// isPurple: "rgb(153, 0, 255)",
-				// isPurpleSubtle: "rgba(153, 0, 255, 0.1)",
-
-				// isViolet: "rgb(102, 0, 255)",
-				// isVioletSubtle: "rgba(102, 0, 255, 0.1)",
-
-				// isBlue: "rgb(19, 0, 255)",
-				// isBlueLight: "rgba(19, 0, 255, 0.8)",
-
-				// isBlueSubtle: "rgba(19, 0, 255, 0.1)",
-
-				// isAzure: "rgb(0, 136, 255)",
-				// isAzureSubtle: "rgba(0, 136, 255, 0.2)",
-
-				// isWater: "rgb(0, 204, 255)",
-				// isWaterSubtle: "rgba(0, 204, 255, 0.1)",
-
-				// isCyan: "rgb(34, 221, 221)",
-
-				// isLink: "#0969da",
-				// isLinkMuted: "rgba(84,174,255,0.4)",
-				// isLinkSubtle: "#ddf4ff",
 
 				// monokai
 				monokai: "#272822",

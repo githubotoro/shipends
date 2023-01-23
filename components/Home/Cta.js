@@ -24,7 +24,7 @@ const Cta = () => {
 	`;
 	return (
 		<>
-			<div className=" flex flex-col bg-isGrayLightEmphasis6 bg-top">
+			<div className="flex flex-col bg-top bg-isWhite">
 				<div className="flex flex-col items-center w-full min-h-screen text-center place-content-start">
 					{/* TAGLINE */}
 					<ResponsiveFontSize>
@@ -32,10 +32,7 @@ const Cta = () => {
 							className="mt-[30px] md:mt-[40px] lg:mt-[50px]
 				 w-full max-w-5xl flex flex-col font-black place-content-center"
 						>
-							<div
-								className="flex flex-col px-1 text-transparent
-				bg-gradient-to-r from-isOrangeDark to-isPinkDark bg-clip-text"
-							>
+							<div className="flex flex-col px-1 text-transparent bg-gradient-to-r from-isMintDark to-isGreenDark bg-clip-text">
 								ship cool products
 							</div>
 							<div
@@ -65,30 +62,24 @@ const Cta = () => {
 					{/* DESCRIPTION */}
 					<div
 						className="py-[12px] px-[12px] font-bold text-isGrayDark2
-			  text-md md:text-lg lg:text-xl tracking-tight"
+						text-md md:text-lg lg:text-xl tracking-tight"
 					>
-						We go through Web3 docs, simplify them and create notes,
-						so you can start shipping{" "}
-						<div className="italic text-isGrayDarkEmphasis6 font-extrabold">
-							-- within 5 min.
-						</div>
+						We go through Web3 docs, simplify them and create notes, so you can start shipping{" "}
+						<div className="italic font-extrabold text-isGrayDarkEmphasis6">-- within 5 min.</div>
 					</div>
 					{/* DESCRIPTION */}
 
 					{/* GET STARTED */}
 					<Link href="/learn" className="pt-[4px]">
 						<div
-							className="border-animate shadow-[0_0_0_0px_#70D7FF]
-							hover:shadow-[0_0_0_6px_#70D7FF]
-				 px-[12px] py-[4px] rounded-lg md:rounded-xl lg:rounded-xl
-				 bg-gradient-to-br from-isBlueLight to-isBlueDark"
+							className="border-animate
+							px-[12px] py-[4px] rounded-lg md:rounded-xl lg:rounded-xl
+							bg-gradient-to-br from-isTealLight to-isTealDark shadow-md
+							hover:from-isTealDark hover:to-isTealDarkEmphasis
+							delay-50 transition duration-300 ease-in-out
+							"
 						>
-							<div
-								className="
-							text-xl md:text-2xl font-black text-transparent
-					bg-gradient-to-br from-isWhite to-isWhite bg-clip-text
-					"
-							>
+							<div className="text-xl font-black text-transparent md:text-2xl bg-gradient-to-br from-isWhite to-isWhite bg-clip-text">
 								Lesgoo!
 							</div>
 						</div>
