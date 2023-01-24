@@ -12,5 +12,6 @@ export const routes = [
 	// {
 	// 	id: "profile",
 	// 	path: "/profile",
+	// 	display: "you",
 	// },
 ];
