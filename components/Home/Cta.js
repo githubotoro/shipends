@@ -53,7 +53,7 @@ const Cta = () => {
 								src={"https://i.imgur.com/xKRjivO.jpg"}
 								alt={"Shipends Theme Banner"}
 								layout={"fill"}
-								className="object-cover object-center rounded-xl md:rounded-xl lg:rounded-3xl"
+								className="object-cover object-center shadow-sm rounded-xl md:rounded-xl lg:rounded-3xl"
 							/>
 						</div>
 					</div>
@@ -64,11 +64,8 @@ const Cta = () => {
 						className="py-[12px] px-[12px] font-bold text-isGrayDark2
 						text-md md:text-lg lg:text-xl tracking-tight"
 					>
-						We go through Web3 docs, simplify them and create notes,
-						so you can start shipping{" "}
-						<div className="italic font-extrabold text-isGrayDarkEmphasis6">
-							-- within 5 min.
-						</div>
+						We go through Web3 docs, simplify them and create notes, so you can start shipping{" "}
+						<div className="italic font-extrabold text-isGrayDarkEmphasis6">-- within 5 min.</div>
 					</div>
 					{/* DESCRIPTION */}
 

@@ -21,7 +21,7 @@ const Content = ({ frontmatter, source }) => {
 			<div className="flex flex-col items-start w-full text-xs place-content-center md:text-sm lg:text-md">
 				<div
 					className="flex w-full flex-col border-[1px] rounded-b-lg md:rounded-b-xl lg:rounded-b-2xl  
-				             border-isGrayLightEmphasis4 border-t-[0px] bg-isWhite text-isGrayDarkEmphasis6 "
+				             border-isGrayLightEmphasis4 border-t-[0px] bg-isWhite text-isGrayDarkEmphasis4 "
 				>
 					<div className="px-[14px] md:px-[20px] lg:px-[26px] text-xs md:text-sm lg:text-md break-words">
 						<MDXRemote components={MDXComponents} {...source} />

@@ -66,6 +66,7 @@ export const getStaticPaths = async () => {
 
 const Sail = ({ frontmatter, source, index }) => {
 	const Router = useRouter();
+
 	if (Router.isFallback) {
 		return <>Loading...</>;
 	}

@@ -12,7 +12,7 @@ const Page = ({ frontmatter, source, index }) => {
 				</div>
 			</div>
 
-			<NavigationPanel frontmatter={frontmatter} index={index} />
+			{/* <NavigationPanel frontmatter={frontmatter} index={index} /> */}
 		</>
 	);
 };
