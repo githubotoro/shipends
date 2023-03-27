@@ -62,7 +62,7 @@ const Sea = async () => {
                       content={content.data[section].title}
                       props={{
                         size: "lg",
-                        weight: "800",
+                        weight: "700",
                         color: "lightTertiary",
                         animate: "default",
                         className: "z-40 group-hover:text-isWhite",
