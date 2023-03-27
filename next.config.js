@@ -1,31 +1,79 @@
+const { get } = require("@vercel/edge-config");
+const { withContentlayer } = require("next-contentlayer");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	reactStrictMode: true,
 	images: {
-		domains: ["imgur.com", "i.imgur.com", "firebasestorage.googleapis.com"],
+		domains: ["res.cloudinary.com/", "i.imgur.com", "firebasestorage.googleapis.com", "image.lexica.art"],
 		unoptimized: true,
 	},
-	compiler: {
-		styledComponents: true,
+	experimental: {
+		appDir: true,
+	},
+	redirects() {
+		try {
+			return get("redirects");
+		} catch {
+			return [];
+		}
+	},
+	headers() {
+		return [
+			{
+				source: "/(.*)",
+				headers: securityHeaders,
+			},
+		];
 	},
 };
 
-// const withMDX = require("@next/mdx")({
-// 	extension: /\.mdx?$/,
-// 	options: {
-// 		// If you use remark-gfm, you'll need to use next.config.mjs
-// 		// as the package is ESM only
-// 		// https://github.com/remarkjs/remark-gfm#install
-// 		remarkPlugins: [],
-// 		rehypePlugins: [],
-// 		// If you use `MDXProvider`, uncomment the following line.
-// 		// providerImportSource: "@mdx-js/react",
-// 	},
-// });
+// https://nextjs.org/docs/advanced-features/security-headers
+const ContentSecurityPolicy = `
+    default-src 'self' vercel.live;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live;
+    style-src 'self' 'unsafe-inline';
+    img-src * blob: data:;
+    media-src 'none';
+    connect-src *;
+    font-src 'self';
+`;
 
-// module.exports = withMDX({
-// 	// Append the default value with md extensions
-// 	pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
-// });
+const securityHeaders = [
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+	{
+		key: "Content-Security-Policy",
+		value: ContentSecurityPolicy.replace(/\n/g, ""),
+	},
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
+	{
+		key: "Referrer-Policy",
+		value: "origin-when-cross-origin",
+	},
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
+	{
+		key: "X-Frame-Options",
+		value: "DENY",
+	},
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
+	{
+		key: "X-Content-Type-Options",
+		value: "nosniff",
+	},
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
+	{
+		key: "X-DNS-Prefetch-Control",
+		value: "on",
+	},
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
+	{
+		key: "Strict-Transport-Security",
+		value: "max-age=31536000; includeSubDomains; preload",
+	},
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy
+	{
+		key: "Permissions-Policy",
+		value: "camera=(), microphone=(), geolocation=()",
+	},
+];
 
-module.exports = nextConfig;
+module.exports = withContentlayer(nextConfig);

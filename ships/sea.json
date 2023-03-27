@@ -1,0 +1,75 @@
+{
+  "data": {
+    "hardhat": {
+      "title": "hardhat",
+      "description": "build, deploy and verify production ready smart contracts, starting today.",
+      "path": "hardhat",
+      "logo": {
+        "src": "https://assets-global.website-files.com/6364e65656ab107e465325d2/6381641b6a60932fb3c3c2d9_crsLQ2lVok-0X37hZ_7RSl62vTm5GRP0Ws4xyPt4E5I.jpeg",
+        "alt": "image"
+      },
+      "banner": {
+        "src": "https://image.lexica.art/full_jpg/151431bd-cc00-48b4-8b0f-c85317d6fc51",
+        "alt": "image"
+      },
+      "status": "active"
+    },
+    "rainbowkit": {
+      "title": "rainbowKit",
+      "description": "the goto connect wallet button for your next dApp is just a click away.",
+      "path": "rainbowkit",
+      "logo": {
+        "src": "https://www.rainbowkit.com/rainbow.svg",
+        "alt": "image"
+      },
+      "banner": {
+        "src": "https://image.lexica.art/full_jpg/62a4b452-b7a1-4897-a784-94d622912c68",
+        "alt": "image"
+      },
+      "status": "soon"
+    },
+    "wagmi": {
+      "title": "wagmi",
+      "description": "learn how to interact with smart contracts like a pro.",
+      "path": "wagmi",
+      "logo": {
+        "src": "https://pbs.twimg.com/profile_images/1520407180322693120/uS6VdwoS_400x400.jpg",
+        "alt": "image"
+      },
+      "banner": {
+        "src": "https://image.lexica.art/full_jpg/a1cbfa79-45c6-49fd-a569-547a84b28e41",
+        "alt": "image"
+      },
+      "status": "soon"
+    },
+    "push-protocol": {
+      "title": "push protocol",
+      "description": "the one and only pinky notification centre for all your web3 communications.",
+      "path": "pushprotocol",
+      "logo": {
+        "src": "https://avatars.githubusercontent.com/u/64157541?s=200&v=4",
+        "alt": "image"
+      },
+      "banner": {
+        "src": "https://image.lexica.art/full_jpg/b7082f45-8ab8-4224-951b-1d3b34fa6f63",
+        "alt": "image"
+      },
+      "status": "soon"
+    },
+    "biconomy": {
+      "title": "biconomy",
+      "description": "cast magical spells with wallets that work like a charm.",
+      "path": "biconomy",
+      "logo": {
+        "src": "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/BICO.jpg",
+        "alt": "image"
+      },
+      "banner": {
+        "src": "https://image.lexica.art/full_jpg/5f447e15-77a9-4bae-82bb-bde4e675e782",
+        "alt": "image"
+      },
+      "status": "soon"
+    },
+    "sections": ["hardhat", "rainbowkit", "wagmi", "push-protocol", "biconomy"]
+  }
+}

@@ -1,0 +1,1 @@
+export { Tailwind } from "./tailwind";

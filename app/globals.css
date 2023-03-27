@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+code[data-line-numbers] {
+  counter-reset: lineNumber;
+}
+
+code[data-line-numbers] .line::before {
+  counter-increment: lineNumber;
+  content: counter(lineNumber);
+  display: inline-block;
+  text-align: right;
+  margin-right: 0.75rem;
+  width: 1rem;
+  @apply text-isLabelDarkTertiary;
+}
+
+code[data-line-numbers] .line--highlighted.line::before {
+  @apply text-isSystemLightSecondary font-600;
+}
+
+div[data-rehype-pretty-code-fragment] .line {
+  @apply pl-2 pr-3 bg-transparent border-l-4 border-l-transparent hover:bg-isSystemDarkTertiary hover:border-isSystemLightTertiary;
+}
+
+div[data-rehype-pretty-code-fragment] .line--highlighted {
+  @apply border-isBlueDark hover:border-isGreenDark bg-isFillDarkTertiary hover:bg-isFillDarkPrimary;
+}
+
+div[data-rehype-pretty-code-fragment] .word--highlighted {
+  @apply border-isBlueDark hover:border-isGreenDark bg-isFillDarkTertiary hover:bg-isFillDarkPrimary;
+}
+
+div[data-rehype-pretty-code-title] {
+  @apply w-full px-5 py-1 font-mono text-sm shadow-sm font-700 rounded-xl bg-isSystemDarkTertiary text-isSystemLightTertiary;
+}
+
+div[data-rehype-pretty-code-fragment] {
+  @apply relative overflow-hidden rounded-xl bg-isSystemDarkSecondary font-400;
+}
+
+div[data-rehype-pretty-code-fragment] code {
+  @apply grid p-0 text-sm border-none bg-isSystemDarkSecondary;
+}
+
+[data-rehype-pretty-code-fragment] .word--highlighted {
+  @apply p-1 rounded-md bg-slate-500 bg-opacity-10;
+}

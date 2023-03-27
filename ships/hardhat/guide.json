@@ -1,0 +1,68 @@
+{
+  "data": {
+    "parent": "hardhat",
+    "banner": "https://i.imgur.com/lEj5AHA.jpg",
+    "set-up-hardhat": {
+      "publishedAt": "01.03.2023",
+      "title": "set up hardhat",
+      "description": "start writing production-ready smart contracts -- right from scratch.",
+      "path": "set-up-hardhat",
+      "banner": {
+        "src": "https://image.lexica.art/full_jpg/5b07b97b-6ef5-4432-8b88-629ab73d89ae",
+        "alt": "image"
+      },
+      "takes": 2
+    },
+    "under-the-hood": {
+      "publishedAt": "06.03.2023",
+      "title": "how hardhat works under the hood?",
+      "description": "if you wanna connect smart contract to your frontend, you definitely gotta know this.",
+      "path": "under_the_hood",
+      "banner": {
+        "src": "https://image.lexica.art/full_jpg/ad4f686e-350f-4d8e-acc1-b1f701166f67",
+        "alt": "image"
+      },
+      "takes": 3
+    },
+    "deploy-locally": {
+      "publishedAt": "15.03.2023",
+      "title": "deploy smart contracts locally",
+      "description": "you haven't wrote a smart contract, if it isn't deployed -- right?",
+      "path": "deploy-locally",
+      "banner": {
+        "src": "https://image.lexica.art/full_jpg/d65efe70-2220-4b6f-affc-43c306fd2667",
+        "alt": "image"
+      },
+      "takes": 4
+    },
+    "deploy-testnet": {
+      "publishedAt": "25.03.2023",
+      "title": "deploy smart contracts on testnet",
+      "description": "if it's on localhost, it didn't happen -- simple!",
+      "path": "deploy-testnet",
+      "banner": {
+        "src": "https://image.lexica.art/full_jpg/b5cc81e9-c41d-4b23-992c-3a746c72d711",
+        "alt": "image"
+      },
+      "takes": 5
+    },
+    "verify-etherscan": {
+      "publishedAt": "26.03.2023",
+      "title": "verify smart contracts on etherscan",
+      "description": "forget twitter blue, lemme introduce you to etherscan green.",
+      "path": "verify-etherscan",
+      "banner": {
+        "src": "https://image.lexica.art/full_jpg/0932a7c6-f398-442c-a64d-53137eca9232",
+        "alt": "image"
+      },
+      "takes": 5
+    },
+    "sections": [
+      "set-up-hardhat",
+      "under-the-hood",
+      "deploy-locally",
+      "deploy-testnet",
+      "verify-etherscan"
+    ]
+  }
+}

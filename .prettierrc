@@ -1,0 +1,17 @@
+{
+  "semi": true,
+  "overrides": [
+    {
+      "files": "*.md",
+      "options": {
+        "semi": true
+      }
+    },
+    {
+      "files": ["*.md"],
+      "options": {
+        "tabWidth": 4
+      }
+    }
+  ]
+}
