@@ -51,3 +51,34 @@ div[data-rehype-pretty-code-fragment] code {
 [data-rehype-pretty-code-fragment] .word--highlighted {
   @apply p-1 rounded-md bg-slate-500 bg-opacity-10;
 }
+
+/* thanks to @shuvo for this space background */
+/* check it out here -- https://dev.to/0shuvo0/pure-css-infinite-spacegalaxy-with-just-one-div-4o02 */
+
+.space {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 2px;
+  width: 2px;
+  background-color: #fff;
+  border-radius: 100%;
+  box-shadow: -47vw -45vh 3px 1px #fff, 36vw -18vh 2px 2px #fff,
+    -8vw 25vh 0px 1px #fff, -25vw 3vh 0px 3px #fff, -39vw 34vh 2px 3px #fff,
+    -37vw 30vh 1px 3px #fff, 36vw -49vh 3px 3px #fff, 50vw -37vh 3px 2px #fff,
+    -8vw -48vh 3px 3px #fff, 32vw -47vh 3px 0px #fff, 36vw 0vh 1px 3px #fff,
+    -5vw 17vh 3px 0px #fff, -48vw -23vh 0px 3px #fff, -40vw 35vh 1px 3px #fff,
+    47vw -17vh 0px 2px #fff, -32vw 48vh 3px 2px #fff, 25vw 18vh 0px 2px #fff,
+    -8vw 46vh 3px 0px #fff, -44vw -35vh 2px 2px #fff, 42vw -40vh 0px 0px #fff,
+    -7vw -12vh 3px 3px #fff, 45vw 17vh 2px 1px #fff, -42vw 3vh 3px 3px #fff,
+    39vw -34vh 1px 3px #fff, 44vw -44vh 2px 1px #fff, 40vw 11vh 0px 0px #fff,
+    -1vw -26vh 1px 2px #fff, -47vw -50vh 0px 1px #fff, -14vw -27vh 0px 3px #fff,
+    24vw 19vh 2px 0px #fff, -50vw -22vh 0px 2px #fff, 2vw 43vh 0px 0px #fff,
+    -49vw 42vh 3px 3px #fff, -11vw 47vh 3px 2px #fff, 23vw 30vh 3px 3px #fff,
+    -17vw -1vh 2px 3px #fff, -2vw 8vh 2px 2px #fff, 18vw -34vh 0px 0px #fff,
+    -34vw 49vh 1px 1px #fff, -29vw -40vh 3px 0px #fff, -1vw 20vh 0px 2px #fff,
+    50vw -28vh 2px 0px #fff, 1vw 26vh 1px 1px #fff, -33vw -39vh 2px 2px #fff,
+    40vw 38vh 0px 1px #fff, 22vw -37vh 0px 2px #fff, 19vw 16vh 2px 3px #fff,
+    0vw 12vh 2px 2px #fff, -46vw -41vh 2px 0px #fff, 13vw 25vh 3px 0px #fff;
+  animation: zoom 10s alternate infinite;
+}
