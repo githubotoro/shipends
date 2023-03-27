@@ -23,7 +23,7 @@ export const Tweet = ({ content }) => {
 
 export const Back = ({ href }) => {
   return (
-    <Link href={href} scroll={true}>
+    <Link href={href} scroll={true} target="_self" rel="noopener noreferrer">
       <button className={cx(buttonClasses)}>
         <BackCircle classes={cx(iconClasses)} />
         <div className="leading-none">back</div>

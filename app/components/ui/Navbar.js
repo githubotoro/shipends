@@ -64,7 +64,11 @@ export const Navbar = () => {
                 key={index}
                 className="flex flex-col items-center w-full place-content-center"
               >
-                <Link href={route.pathname}>
+                <Link
+                  href={route.pathname}
+                  target="_self"
+                  rel="noopener noreferrer"
+                >
                   <route.icon
                     classes={cx(
                       iconButton.classes,
