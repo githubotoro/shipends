@@ -11,16 +11,14 @@ export const Display = ({
   loadingBackground = "bg-isSystemDarkPrimary",
   pulseColor = "bg-isSystemDarkTertiary",
 }) => {
-  const animate = "transition-all duration-1000 ease-in-out";
+  const animate = "transition-all duration-200 ease-in-out";
   const full = "w-full h-full";
   const [imageLoading, setImageLoading] = useState(true);
   const [hide, setHide] = useState("");
 
   useEffect(() => {
     if (imageLoading === false) {
-      setTimeout(() => {
-        setHide("hidden");
-      }, 1000);
+      setHide("hidden");
     }
   }, [imageLoading]);
 

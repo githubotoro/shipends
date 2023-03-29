@@ -38,9 +38,9 @@ const Home = () => {
               <Link href={`/sea`}>
                 <button
                   className="w-fit bg-isSystemLightSecondary font-800 tracking-wide text-isSystemDarkTertiary
-			  px-[0.6rem] sm:px-[0.8rem] sm:py-[0.1rem]
-		rounded-lg sm:rounded-xl text-2xl sm:text-3xl shadow-sm transition-all hover:bg-isWhite hover:text-isSystemDarkSecondary
-		duration-300 ease-in-out hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+			  px-3  leading-none py-1
+		rounded-lg text-2xl shadow-sm transition-all hover:bg-isWhite hover:text-isSystemDarkSecondary
+		duration-300 ease-in-out hover:drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]"
                 >
                   let's ship
                 </button>
